@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="stylesheet" type="text/css" href="header.css" />
     <link rel="stylesheet" type="text/css" href="content.css" />
-    <title>Document</title>
+    <title>amazon</title>
   </head>
   <body>
     <div id="main">
@@ -31,8 +31,18 @@
         </div>
         <div id="middle-section">
           <input id="search-input" placeholder="Search" />
+          <button id="search-button">
+            <img id="search-icon" src="pic/search-icon.png" />
+          </button>
         </div>
-        <div id="right-section">R</div>
+
+        <div id="right-section">
+          <button id="cart-button">
+            <img id="cart-icon" src="pic/cart-icon.png" />
+            <label id="cart-items-count">0</label>
+          </button>
+          <label id="cart-text">Cart</label>
+        </div>
       </div>
       <div id="content">
         <div class="product-container">
@@ -40,13 +50,13 @@
             <img class="product-picture" src="pic/product1.jpg" alt="" />
           </div>
           <div class="product-info-container">
-            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+            <p class="product-name">Round Sunglasses</p>
           </div>
           <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating1.png" alt="" />
             <label class="product-rating-count">87</label>
           </div>
-          <div class="product-price-container"><p>$10.90</p></div>
+          <div class="product-price"><p>$10.90</p></div>
           <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
               <option value="1">1</option>
@@ -63,8 +73,8 @@
           </div>
           <p class="product-color-text">Color</p>
           <div class="product-variation-container">
-            <button class="product-variation-color-button">Green</button>
             <button class="product-variation-color-button">Black</button>
+            <button class="product-variation-color-button">White</button>
           </div>
           <p class="product-size-text">Size</p>
           <div class="product-size-container">
@@ -85,16 +95,16 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product1.jpg" alt="" />
+            <img class="product-picture" src="pic/product2.jpg" alt="" />
           </div>
           <div class="product-info-container">
-            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+            <p class="product-name">Plain Hooded Fleece Sweatshirt</p>
           </div>
           <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating1.png" alt="" />
             <label class="product-rating-count">87</label>
           </div>
-          <div class="product-price-container"><p>$10.90</p></div>
+          <div class="product-price"><p>$10.90</p></div>
           <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
               <option value="1">1</option>
@@ -111,8 +121,8 @@
           </div>
           <p class="product-color-text">Color</p>
           <div class="product-variation-container">
-            <button class="product-variation-color-button">Green</button>
-            <button class="product-variation-color-button">Black</button>
+            <button class="product-variation-color-button">Yellow</button>
+            <button class="product-variation-color-button">Red</button>
           </div>
           <p class="product-size-text">Size</p>
           <div class="product-size-container">
@@ -130,138 +140,7 @@
             <button class="addToCartButton">Add to Cart</button>
           </div>
         </div>
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product1.jpg" alt="" />
-          </div>
-          <div class="product-info-container">
-            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
-          </div>
-          <div class="product-rating-container">
-            <img class="product-rating-stars" src="pic/rating1.png" alt="" />
-            <label class="product-rating-count">87</label>
-          </div>
-          <div class="product-price-container"><p>$10.90</p></div>
-          <div class="product-quantity-container">
-            <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <p class="product-color-text">Color</p>
-          <div class="product-variation-container">
-            <button class="product-variation-color-button">Green</button>
-            <button class="product-variation-color-button">Black</button>
-          </div>
-          <p class="product-size-text">Size</p>
-          <div class="product-size-container">
-            <button class="product-variation-size-button">S</button>
-            <button class="product-variation-size-button">M</button>
-            <button class="product-variation-size-button">L</button>
-          </div>
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
-            <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
-            </div>
-            <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product1.jpg" alt="" />
-          </div>
-          <div class="product-info-container">
-            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
-          </div>
-          <div class="product-rating-container">
-            <img class="product-rating-stars" src="pic/rating1.png" alt="" />
-            <label class="product-rating-count">87</label>
-          </div>
-          <div class="product-price-container"><p>$10.90</p></div>
-          <div class="product-quantity-container">
-            <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <p class="product-color-text">Color</p>
-          <div class="product-variation-container">
-            <button class="product-variation-color-button">Green</button>
-            <button class="product-variation-color-button">Black</button>
-          </div>
-          <p class="product-size-text">Size</p>
-          <div class="product-size-container">
-            <button class="product-variation-size-button">S</button>
-            <button class="product-variation-size-button">M</button>
-            <button class="product-variation-size-button">L</button>
-          </div>
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
-            <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
-            </div>
-            <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product1.jpg" alt="" />
-          </div>
-          <div class="product-info-container">
-            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
-          </div>
-          <div class="product-rating-container">
-            <img class="product-rating-stars" src="pic/rating1.png" alt="" />
-            <label class="product-rating-count">87</label>
-          </div>
-          <div class="product-price-container"><p>$10.90</p></div>
-          <div class="product-quantity-container">
-            <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
-            <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
-            </div>
-            <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-container">
+        <!-- <div class="product-container">
           <div class="product-picture-container">
             <img class="product-picture" src="pic/product1.jpg" alt="" />
           </div>
@@ -355,6 +234,137 @@
             <button class="addToCartButton">Add to Cart</button>
           </div>
         </div>
+        <div class="product-container">
+          <div class="product-picture-container">
+            <img class="product-picture" src="pic/product1.jpg" alt="" />
+          </div>
+          <div class="product-info-container">
+            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+          </div>
+          <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating1.png" alt="" />
+            <label class="product-rating-count">87</label>
+          </div>
+          <div class="product-price-container"><p>$10.90</p></div>
+          <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+
+          <div class="spacer"></div>
+
+          <div class="product-addToCart-container">
+            <div class="product-added-container">
+              <img class="product-added-icon" src="pic/tick.png" />
+              <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-container">
+          <div class="product-picture-container">
+            <img class="product-picture" src="pic/product1.jpg" alt="" />
+          </div>
+          <div class="product-info-container">
+            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+          </div>
+          <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating1.png" alt="" />
+            <label class="product-rating-count">87</label>
+          </div>
+          <div class="product-price-container"><p>$10.90</p></div>
+          <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <p class="product-color-text">Color</p>
+          <div class="product-variation-container">
+            <button class="product-variation-color-button">Green</button>
+            <button class="product-variation-color-button">Black</button>
+          </div>
+          <p class="product-size-text">Size</p>
+          <div class="product-size-container">
+            <button class="product-variation-size-button">S</button>
+            <button class="product-variation-size-button">M</button>
+            <button class="product-variation-size-button">L</button>
+          </div>
+          <div class="spacer"></div>
+
+          <div class="product-addToCart-container">
+            <div class="product-added-container">
+              <img class="product-added-icon" src="pic/tick.png" />
+              <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-container">
+          <div class="product-picture-container">
+            <img class="product-picture" src="pic/product1.jpg" alt="" />
+          </div>
+          <div class="product-info-container">
+            <p>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+          </div>
+          <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating1.png" alt="" />
+            <label class="product-rating-count">87</label>
+          </div>
+          <div class="product-price-container"><p>$10.90</p></div>
+          <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <p class="product-color-text">Color</p>
+          <div class="product-variation-container">
+            <button class="product-variation-color-button">Green</button>
+            <button class="product-variation-color-button">Black</button>
+          </div>
+          <p class="product-size-text">Size</p>
+          <div class="product-size-container">
+            <button class="product-variation-size-button">S</button>
+            <button class="product-variation-size-button">M</button>
+            <button class="product-variation-size-button">L</button>
+          </div>
+          <div class="spacer"></div>
+
+          <div class="product-addToCart-container">
+            <div class="product-added-container">
+              <img class="product-added-icon" src="pic/tick.png" />
+              <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+          </div>
+        </div>
 
         <div class="product-container">
           <div class="product-picture-container">
@@ -811,8 +821,11 @@
             </div>
             <button class="addToCartButton">Add to Cart</button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
+
+    <!-- script starts here -->
+    <script src="index.js"></script>
   </body>
 </html>

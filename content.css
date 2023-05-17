@@ -1,5 +1,5 @@
 #content {
-  margin-top: 50px;
+  margin-top: 55px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   background-color: white;
@@ -67,6 +67,10 @@
   max-height: 100%;
 }
 
+.product-name {
+  height: 35px;
+}
+
 .product-info-container {
   padding: 4px 0px;
   text-align: left;
@@ -93,7 +97,7 @@
   cursor: pointer;
 }
 
-.product-price-container {
+.product-price {
   text-align: left;
   padding: 5px 0px;
   font-weight: 600;
@@ -214,7 +218,16 @@
   height: 20px;
   height: 20px;
 }
-.product-added-text {
+.product-added-container {
   color: rgb(0, 117, 0);
   font-weight: 400;
+  opacity: 0;
+}
+
+.product-added-container-added {
+  opacity: 1;
+}
+
+.product-variation-selected {
+  border: 2px solid rgb(219, 169, 31);
 }

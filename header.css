@@ -1,5 +1,5 @@
 #header {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(19, 25, 33);
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -7,10 +7,12 @@
   left: 0;
   width: 100%;
   align-items: center;
-  height: 50px;
+  height: 55px;
   z-index: 999;
   padding: 0px 10px;
   gap: 10px;
+  flex-direction: row;
+  box-shadow: 0px 5px 15px rgb(61, 47, 1, 0.3);
 }
 
 #left-section {
@@ -18,37 +20,107 @@
 }
 
 #middle-section {
-  background-color: red;
+  align-items: center;
+  display: flex;
+  align-items: center;
   margin-left: 30px;
   flex: 3;
-}
 
-#right-section {
-  flex: 1;
+  justify-content: center;
 }
 
 #logo {
   margin-top: 5px;
   margin-left: 10px;
-  width: 80px;
+  width: 92px;
   cursor: pointer;
 }
 
 #search-input {
-  height: 30px;
-  width: 60%;
-  max-width: 600px;
-  border-radius: 6px;
+  height: 35px;
+  width: 90%;
+  max-width: 850px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   font-size: 15px;
   padding-left: 10px;
   border: none;
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 #search-input:focus {
   outline: none;
-  border: 1px solid rgb(255, 216, 20);
+  border-left: 1px solid rgb(219, 186, 20);
+  border-top: 1px solid rgb(219, 186, 20);
+  border-bottom: 1px solid rgb(219, 186, 20);
+}
+
+#search-button {
+  height: 35px;
+  width: 40px;
+  border: none;
+  background-color: rgb(254, 189, 105);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-icon {
+  height: 20px;
+  width: 20px;
+}
+
+#right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+#cart-button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+}
+
+#cart-icon {
+  width: 47px;
+  height: 35px;
+  position: relative;
+}
+
+#cart-text {
+  color: white;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+#cart-items-count {
+  color: rgb(240, 136, 4);
+  font-size: 15px;
+  font-weight: 700;
+  position: absolute;
+  left: 58%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  text-align: center;
+}
+
+#search-input:focus + #search-button {
+  outline: none;
+  height: 37px;
+  border-right: 1px solid rgb(219, 186, 20);
+  border-top: 1px solid rgb(219, 186, 20);
+  border-bottom: 1px solid rgb(219, 186, 20);
 }
