@@ -1,0 +1,26 @@
+* {
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+  border: none;
+  font-family: roboto, Arial;
+  font-family: "Sen", sans-serif;
+  font-family: "Signika", sans-serif;
+  font-weight: 300;
+}
+
+html {
+  font-size: 15px;
+}
+
+#main {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
