@@ -5,26 +5,39 @@ let quantity = 0;
 
 const product = {
   name: document.querySelectorAll(".product-name"),
-  //   pic: document.querySelectorAll(".product-picture"),
+  picture: document.querySelectorAll(".product-picture"),
   price: document.querySelectorAll(".product-price"),
   addToCart: document.querySelectorAll(".addToCartButton"),
   addedText: document.querySelectorAll(".product-added-container"),
   quantity: document.querySelectorAll("#product-quantity-choices"),
-  variation: document.querySelectorAll(".product-variation-container"),
+  variationFirst: document.querySelectorAll(".product-variation-container"),
+  variationSecond: document.querySelectorAll(".product-variation-container"),
 };
 
 selectVariation();
 updateCart();
 function selectVariation() {
-  //Select first variation as default
-  let variations = [];
-  for (let i = 0; i < product.variation.length; i++) {
-    variations.push(product.variation[i]);
-  }
-  variations.forEach((element) => {
-    const buttons = element.querySelectorAll("button");
-    buttons[0].classList.add("product-variation-selected");
+  let array = [];
+  product.variationFirst.forEach((variation, index) => {
+    const buttons = product.variationFirst[index].querySelectorAll("button");
+    array.push(buttons);
   });
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      array[i][0].classList.add("product-variation-selected");
+      array[i][j].addEventListener("click", select);
+
+      function select() {
+        for (let k = 0; k < array[i].length; k++) {
+          array[i][k].classList.remove("product-variation-selected");
+        }
+        array[i][j].classList.add("product-variation-selected");
+        product.picture[i].setAttribute("data-id", array[i][j].textContent);
+        let pictureSRC = `pic/product${i + 1}-var${j + 1}.jpg`;
+        product.picture[i].src = pictureSRC;
+      }
+    }
+  }
 }
 
 function updateCart() {
