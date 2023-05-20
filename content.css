@@ -197,6 +197,11 @@
   box-shadow: 2px 2px 4px rgba(68, 66, 66, 0.3);
   display: block;
   margin: 0 auto;
+  transition: all 0.1s ease-in-out; /* add transition for smooth effect */
+}
+
+.addToCartButton:hover {
+  transform: scale(1.03); /* increase size by 10% on hover */
 }
 
 .addToCartButton:hover {

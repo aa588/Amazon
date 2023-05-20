@@ -1,43 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Signika:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="header.css" />
-    <link rel="stylesheet" type="text/css" href="content.css" />
-    <link rel="stylesheet" type="text/css" href="cart.css" />
-    <title>amazon</title>
-  </head>
-  <body>
-    <div id="cart-page-container">
-      <div id="cart-page-header">
-        <a href="index.html"><img id="logo2" src="pic/amazon-logo2.png" /></a>
-        <p id="checkoutItems">Checkout (<span class="cartCountDisplay">0 items</span>)</p>
-        <img id="checkoutSecureIcon" src="pic/checkout-lock-icon.png" />
-      </div>
-      <div id="cart-page-content">
-        <div id="cart-page-content-title">Review your order</div>
-        <div id="cart-page-content-products">
-          <div id="cart-page-content-review">s</div>
-        </div>
-        <div id="cart-page-content-summary">c</div>
-      </div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Signika:wght@300;400;500;600;700&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="stylesheet" type="text/css" href="index.css" />
+      <link rel="stylesheet" type="text/css" href="header.css" />
+      <link rel="stylesheet" type="text/css" href="content.css" />
+      <link rel="stylesheet" type="text/css" href="cart.css" />
+      <title>amazon</title>
+   </head>
+   <body>
+      <div id="cart-page-container">
+         <div id="cart-page-header">
+            <a href="index.html"><img id="logo2" src="pic/amazon-logo2.png" /></a>
+            <p id="checkoutItems">Checkout (<span class="cartCountDisplay">0 items</span>)</p>
+            <img id="checkoutSecureIcon" src="pic/checkout-lock-icon.png" />
+         </div>
+         <div id="cart-page-content">
+            <div id="cart-page-content-title">Review your order</div>
+            <div id="cart-page-content-products">
+               <div id="cart-page-content-review">
+                  <div id="cart-page-content-review-header">Delivery date: </div>
+                  <div id="cart-page-content-review-details">
+                     <div id="cart-product-picture">x</div>
+                     <div id="cart-product-details">
+                        <div>Product Name</div>
+                        <div>Price</div>
+                        <div id="cart-product-quantity-container">
+                           <div id="cart-product-quantity">Quantity: </div>
+                           <label id="cart-update-quantity">Update</label>
+                           <label id="cart-delete-quantity">Delete</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="cart-page-content-review-delivery">
+                     <div id="delivery-header">Choose a delivery option:</div>
+                     <div id="delivery-option1-container">
+                        <input type="radio" name="cart-delivery-button" id="cart-delivery-selector"> 
+                        <div id="cart-delivery-options">
+                           <div id="cart-product-delivery-date">Date1</div>
+                           <div id="cart-product-shipping-date">Shipping Details</div>
+                        </div>
+                     </div>
+                     <div id="delivery-option2-container">
+                        <input type="radio" name="cart-delivery-button" id="cart-delivery-selector"> 
+                        <div id="cart-delivery-options">
+                           <div id="cart-product-delivery-date">Date1</div>
+                           <div id="cart-product-shipping-date">Shipping Details</div>
+                        </div>
+                     </div>
+                     <div id="delivery-option3-container">
+                        <input type="radio" name="cart-delivery-button" id="cart-delivery-selector"> 
+                        <div id="cart-delivery-options">
+                           <div id="cart-product-delivery-date">Date1</div>
+                           <div id="cart-product-shipping-date">Shipping Details</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="checkout">
+              <div id="checkout-header-section">Order Summary</div>
+              <div id="checkout-middle-section">
+                <div id="checkout-middle-section-left">
+                  <label>Items ():</label>
+                  <label>Shipping & handling:</label>
+                  <label>Total before tax:</label>
+                  <label>Estimated tax (10%):</label>
+                  <label>Order total:</label>
+            
+                </div>
+                <div id="checkout-middle-section-right">
+                  <label>$0.00</label>
+                  <label>$0.00</label>
+                  <label>$0.00</label>
+                  <label>$0.00</label>
+                  <label>$0.00</label>
+               
+                </div>
+              </div>
+              <button id="place-order-button">Place your order</button>
 
-  </div>
+            </div>
+         </div>
+      </div>
 </html>
