@@ -1,3 +1,5 @@
+const storedData = JSON.parse(localStorage.getItem("productsStorage"));
+const cartCountDisplay = document.querySelector("#cart-items-count");
 window.onload = function () {
   const temp = document.querySelector("#cart-page-content-products");
 
@@ -57,9 +59,6 @@ window.onload = function () {
     temp.appendChild(newItem);
   }
 };
-
-const storedData = JSON.parse(localStorage.getItem("productsStorage"));
-const cartCountDisplay = document.querySelector("#cart-items-count");
 
 let cartCount = 0;
 let quantity = 0;
