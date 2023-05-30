@@ -1,3 +1,5 @@
+//update list on github
+
 let boughtItems = [];
 const storedData = JSON.parse(localStorage.getItem("productsStorage"));
 const cartCountDisplay = document.querySelector("#cart-items-count");
