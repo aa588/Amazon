@@ -1,3 +1,4 @@
+let boughtItems = [];
 const storedData = JSON.parse(localStorage.getItem("productsStorage"));
 const cartCountDisplay = document.querySelector("#cart-items-count");
 window.onload = function () {
@@ -58,12 +59,16 @@ window.onload = function () {
   </div>`;
     temp.appendChild(newItem);
   }
+  boughtItems = storedData;
+  sessionStorage.clear();
+
 };
 
 let cartCount = 0;
 let quantity = 0;
-let boughtItems = [];
+
 boughtItems = storedData;
+
 
 const product = {
   container: document.querySelectorAll(".product-container"),
@@ -124,6 +129,7 @@ function updateCart() {
 
 product.addToCart.forEach((button) => {
   button.addEventListener("click", () => {
+
     const parent = button.parentElement.parentElement;
     const productName = parent.querySelector(".product-name").textContent;
     let productQuantity = parent.querySelector(
@@ -131,7 +137,6 @@ product.addToCart.forEach((button) => {
     ).value;
 
     productQuantity = parseInt(productQuantity);
-
     const existingItem = boughtItems.find((item) => item.name === productName);
     if (existingItem) {
       existingItem.quantity += parseInt(productQuantity);
