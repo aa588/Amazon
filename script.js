@@ -4,6 +4,9 @@ let boughtItems = JSON.parse(sessionStorage.getItem("productsStorage")) || [];
 const storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
 const cartCountDisplay = document.querySelector("#cart-items-count");
 window.onload = function () {
+  document.querySelector(
+    "#checkoutItems"
+  ).textContent = `Checkout (${cartCount} items)`;
   const temp = document.querySelector("#cart-page-content-products");
 
   for (let i = 0; i < storedData.length; i++) {
@@ -18,7 +21,7 @@ window.onload = function () {
         <div id="cart-product-quantity-container">
           <div id="cart-product-quantity">Quantity: ${storedData[i].quantity}</div>
           <label id="cart-update-quantity">Update</label>
-          <label id="cart-delete-quantity">Delete</label>
+          <button class="cart-delete-quantity" >Delete</button>
         </div>
       </div>
     </div>
@@ -62,15 +65,16 @@ window.onload = function () {
     temp.appendChild(newItem);
   }
   boughtItems = storedData;
-//   sessionStorage.clear();
-
 };
 
-let cartCount = 0;
+// Saving CartCount
+// sessionStorage.clear();
 let quantity = 0;
-
-// boughtItems = storedData;
-
+let cartCount = 0;
+let cartCountTemp = sessionStorage.getItem("cartCountTemp", cartCount);
+cartCountTemp = Number(cartCountTemp);
+cartCount = Number(cartCountTemp);
+cartCountDisplay.textContent = cartCountTemp;
 
 const product = {
   container: document.querySelectorAll(".product-container"),
@@ -117,7 +121,9 @@ function updateCart() {
     function addToCart() {
       quantity = Number(product.quantity[i].value);
       cartCount += quantity;
+
       cartCountDisplay.innerHTML = cartCount;
+      sessionStorage.setItem("cartCountTemp", cartCount);
     }
     function addText() {
       product.addedText[i].classList.add("product-added-container-added");
@@ -131,7 +137,6 @@ function updateCart() {
 
 product.addToCart.forEach((button) => {
   button.addEventListener("click", () => {
-
     const parent = button.parentElement.parentElement;
     const productName = parent.querySelector(".product-name").textContent;
     let productQuantity = parent.querySelector(
