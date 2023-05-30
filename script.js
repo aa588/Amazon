@@ -1,7 +1,7 @@
 //update list on github
 
 let boughtItems = [];
-const storedData = JSON.parse(localStorage.getItem("productsStorage"));
+const storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
 const cartCountDisplay = document.querySelector("#cart-items-count");
 window.onload = function () {
   const temp = document.querySelector("#cart-page-content-products");
@@ -69,7 +69,7 @@ window.onload = function () {
 let cartCount = 0;
 let quantity = 0;
 
-boughtItems = storedData;
+// boughtItems = storedData;
 
 
 const product = {
@@ -155,6 +155,6 @@ function createElements() {
     const quantityDiv = document.createElement("div");
     nameDiv.textContent = boughtItems[i].name;
     quantityDiv.textContent = boughtItems[i].quantity;
-    localStorage.setItem("productsStorage", JSON.stringify(boughtItems));
+    sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
   }
 }
