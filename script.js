@@ -62,7 +62,7 @@ window.onload = function () {
     temp.appendChild(newItem);
   }
   boughtItems = storedData;
-  sessionStorage.clear();
+//   sessionStorage.clear();
 
 };
 
