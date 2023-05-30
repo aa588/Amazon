@@ -1,6 +1,6 @@
 //update list on github
 
-let boughtItems = [];
+let boughtItems = JSON.parse(sessionStorage.getItem("productsStorage")) || [];
 const storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
 const cartCountDisplay = document.querySelector("#cart-items-count");
 window.onload = function () {
