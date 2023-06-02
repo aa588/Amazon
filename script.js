@@ -1,27 +1,41 @@
-//update list on github
+const items = document.querySelector("#items");
+const shipping = document.querySelector("#shipping");
+const totalBeforeTax = document.querySelector("#totalBeforeTax");
+const tax = document.querySelector("#tax");
+const total = document.querySelector("#total");
+// sessionStorage.clear();
+const orderSummaryObject = {
+  items: 0,
+  shipping: 0,
+  totalBeforeTax: 0,
+  tax: 0,
+  total: 0,
+};
 
 let boughtItems = JSON.parse(sessionStorage.getItem("productsStorage")) || [];
-const storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
+// let storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
 const cartCountDisplay = document.querySelector("#cart-items-count");
+
 window.onload = function () {
+  // cartCountDisplay;
   document.querySelector(
     "#checkoutItems"
   ).textContent = `Checkout (${cartCount} items)`;
   const temp = document.querySelector("#cart-page-content-products");
 
-  for (let i = 0; i < storedData.length; i++) {
+  for (let i = 0; i < boughtItems.length; i++) {
     const newItem = document.createElement("div");
     newItem.innerHTML = `<div id="cart-page-content-review">
     <div id="cart-page-content-review-header">Delivery date:</div>
     <div id="cart-page-content-review-details">
       <div id="cart-product-picture">x</div>
       <div id="cart-product-details">
-        <div>${storedData[i].name}</div>
-        <div>Price</div>
+        <div class = "proName">${boughtItems[i].name}</div>
+        <div class="price">${boughtItems[i].price}</div>
         <div id="cart-product-quantity-container">
-          <div id="cart-product-quantity">Quantity: ${storedData[i].quantity}</div>
+          <div id="cart-product-quantity">Quantity: ${boughtItems[i].quantity}</div>
           <label id="cart-update-quantity">Update</label>
-          <button class="cart-delete-quantity" >Delete</button>
+          <button id="delete${i}" class="cart-delete-quantity" >Delete</button>
         </div>
       </div>
     </div>
@@ -64,17 +78,58 @@ window.onload = function () {
   </div>`;
     temp.appendChild(newItem);
   }
-  boughtItems = storedData;
+
+  const deleteButtons = document.querySelectorAll(".cart-delete-quantity");
+  deleteButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const parentDiv =
+        button.parentElement.parentElement.parentElement.parentElement;
+      parentDiv.remove();
+
+      let proName =
+        button.parentElement.parentElement.parentElement.querySelector(
+          ".proName"
+        ).textContent;
+
+      let currentIndex = boughtItems.findIndex((item) => item.name === proName);
+      if (currentIndex !== -1) {
+        boughtItems.splice(currentIndex, 1); // remove the item at the index
+      }
+      sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
+      orderSummary();
+    });
+
+    // boughtItems = storedData;
+  });
+  orderSummary();
 };
 
-// Saving CartCount
-// sessionStorage.clear();
+function orderSummary() {
+  if (boughtItems.length !== 0) {
+    orderSummaryObject.items = 0;
+    for (let i = 0; i < boughtItems.length; i++) {
+      // boughtItems[i].price = boughtItems[i].price.slice(1);
+      boughtItems[i].price = Number(boughtItems[i].price);
+
+      orderSummaryObject.items +=
+        boughtItems[i].price * boughtItems[i].quantity;
+      items.textContent = `$${orderSummaryObject.items}`;
+
+      // console.log(orderSummaryObject.items);
+    }
+  } else {
+    orderSummaryObject.items = 0;
+    items.textContent = items.textContent = `$0.00`;
+  }
+}
+
 let quantity = 0;
 let cartCount = 0;
 let cartCountTemp = sessionStorage.getItem("cartCountTemp", cartCount);
 cartCountTemp = Number(cartCountTemp);
 cartCount = Number(cartCountTemp);
-cartCountDisplay.textContent = cartCountTemp;
+
+// cartCountDisplay.textContent = cartCountTemp;
 
 const product = {
   container: document.querySelectorAll(".product-container"),
@@ -139,6 +194,8 @@ product.addToCart.forEach((button) => {
   button.addEventListener("click", () => {
     const parent = button.parentElement.parentElement;
     const productName = parent.querySelector(".product-name").textContent;
+    const productPrice = parent.querySelector(".product-price").textContent;
+
     let productQuantity = parent.querySelector(
       '[name="product-quantity"]'
     ).value;
@@ -148,18 +205,23 @@ product.addToCart.forEach((button) => {
     if (existingItem) {
       existingItem.quantity += parseInt(productQuantity);
     } else {
-      boughtItems.push({ name: productName, quantity: productQuantity });
+      boughtItems.push({
+        name: productName,
+        quantity: productQuantity,
+        price: productPrice,
+      });
     }
-    createElements();
+    sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
+
+    // createElements();
   });
 });
 
-function createElements() {
-  for (let i = 0; i < boughtItems.length; i++) {
-    const nameDiv = document.createElement("div");
-    const quantityDiv = document.createElement("div");
-    nameDiv.textContent = boughtItems[i].name;
-    quantityDiv.textContent = boughtItems[i].quantity;
-    sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
-  }
-}
+// function createElements() {
+//   for (let i = 0; i < boughtItems.length; i++) {
+//     const nameDiv = document.createElement("div");
+//     const quantityDiv = document.createElement("div");
+//     nameDiv.textContent = boughtItems[i].name;
+//     quantityDiv.textContent = boughtItems[i].quantity;
+//   }
+// }
