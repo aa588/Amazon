@@ -4,6 +4,7 @@ const totalBeforeTax = document.querySelector("#totalBeforeTax");
 const tax = document.querySelector("#tax");
 const total = document.querySelector("#total");
 // sessionStorage.clear();
+// sessionStorage.clear();
 const orderSummaryObject = {
   items: 0,
   shipping: 0,
@@ -12,8 +13,53 @@ const orderSummaryObject = {
   total: 0,
 };
 
+let shippingLevel1;
+let shippingLevel2;
+let shippingLevel3;
+
+// let currentShippingLevelSelector;
+
+shippingDate();
+function shippingDate() {
+  for (let i = 1; i <= 10; i++) {
+    const date = new Date();
+    date.setDate(date.getDate() + i);
+    const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
+    const day = date.getDate();
+    const month = date.toLocaleString("default", { month: "long" });
+    if (i == 2) {
+      shippingLevel1 = `${dayName}, ${day} ${month}.`;
+    } else if (i == 4) {
+      shippingLevel2 = `${dayName}, ${day} ${month}.`;
+    } else if (i == 10) {
+      shippingLevel3 = `${dayName}, ${day} ${month}.`;
+    }
+  }
+}
+
+//define shipping levels
+let currentShippingLevel = [];
+
+const savedCurrentShippingLevel = JSON.parse(
+  sessionStorage.getItem("currentShippingLevel")
+);
+
+currentShippingLevel = savedCurrentShippingLevel || [currentShippingLevel];
+
+//define shipping selector
+let currentShippingLevelSelector = [];
+
+const savedCurrentShippingLevelSelector = JSON.parse(
+  sessionStorage.getItem("currentShippingSelector")
+);
+
+currentShippingLevelSelector = savedCurrentShippingLevelSelector || [];
+
+/////////////////////
 let boughtItems = JSON.parse(sessionStorage.getItem("productsStorage")) || [];
+
 // let storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
+
 const cartCountDisplay = document.querySelector("#cart-items-count");
 
 window.onload = function () {
@@ -24,9 +70,18 @@ window.onload = function () {
   const temp = document.querySelector("#cart-page-content-products");
 
   for (let i = 0; i < boughtItems.length; i++) {
+    //setting default shipping level
+    if (savedCurrentShippingLevel === null) {
+      currentShippingLevel[i] = shippingLevel3;
+    }
+
+    if (savedCurrentShippingLevelSelector === null) {
+      currentShippingLevelSelector[i] = 0;
+    }
+
     const newItem = document.createElement("div");
     newItem.innerHTML = `<div id="cart-page-content-review">
-    <div id="cart-page-content-review-header">Delivery date:</div>
+    <div class="cart-page-content-review-header">Delivery date: ${currentShippingLevel[i]}</div>
     <div id="cart-page-content-review-details">
       <div id="cart-product-picture">x</div>
       <div id="cart-product-details">
@@ -39,39 +94,40 @@ window.onload = function () {
         </div>
       </div>
     </div>
-    <div id="cart-page-content-review-delivery">
-      <div id="delivery-header">Choose a delivery option:</div>
-      <div id="delivery-option1-container">
+    <div class="cart-page-content-review-delivery">
+      <div class="delivery-header">Choose a delivery option:</div>
+      <div class="delivery-option-container">
         <input
           type="radio"
-          name="cart-delivery-button"
-          id="cart-delivery-selector"
+          name="cart-delivery-button${i}"
+          
+          class="cart-delivery-selector"
         />
         <div id="cart-delivery-options">
-          <div id="cart-product-delivery-date">Date1</div>
-          <div id="cart-product-shipping-date">Shipping Details</div>
+          <div id="cart-product-delivery-date">${shippingLevel3}</div>
+          <div id="cart-product-shipping-date">FREE Shipping</div>
         </div>
       </div>
-      <div id="delivery-option2-container">
+      <div class="delivery-option-container">
         <input
           type="radio"
-          name="cart-delivery-button"
-          id="cart-delivery-selector"
+          name="cart-delivery-button${i}"
+          class="cart-delivery-selector"
         />
         <div id="cart-delivery-options">
-          <div id="cart-product-delivery-date">Date1</div>
-          <div id="cart-product-shipping-date">Shipping Details</div>
+          <div id="cart-product-delivery-date">${shippingLevel2}</div>
+          <div id="cart-product-shipping-date">$4.99 - Shipping</div>
         </div>
       </div>
-      <div id="delivery-option3-container">
+      <div class="delivery-option-container">
         <input
           type="radio"
-          name="cart-delivery-button"
-          id="cart-delivery-selector"
+          name="cart-delivery-button${i}"
+          class="cart-delivery-selector"
         />
         <div id="cart-delivery-options">
-          <div id="cart-product-delivery-date">Date1</div>
-          <div id="cart-product-shipping-date">Shipping Details</div>
+          <div id="cart-product-delivery-date">${shippingLevel1}</div>
+          <div id="cart-product-shipping-date">$9.99 - Shipping</div>
         </div>
       </div>
     </div>
@@ -94,6 +150,8 @@ window.onload = function () {
       let currentIndex = boughtItems.findIndex((item) => item.name === proName);
       if (currentIndex !== -1) {
         boughtItems.splice(currentIndex, 1); // remove the item at the index
+        currentShippingLevelSelector.splice(currentIndex, 1);
+        currentShippingLevel.splice(currentIndex, 1);
       }
       sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
       orderSummary();
@@ -101,28 +159,131 @@ window.onload = function () {
 
     // boughtItems = storedData;
   });
-  orderSummary();
-};
 
-function orderSummary() {
-  if (boughtItems.length !== 0) {
-    orderSummaryObject.items = 0;
-    for (let i = 0; i < boughtItems.length; i++) {
-      // boughtItems[i].price = boughtItems[i].price.slice(1);
-      boughtItems[i].price = Number(boughtItems[i].price);
+  shippingSelect();
+  function shippingSelect() {
+    //default settings
 
-      orderSummaryObject.items +=
-        boughtItems[i].price * boughtItems[i].quantity;
-      items.textContent = `$${orderSummaryObject.items}`;
+    const productSelector = document.querySelectorAll(
+      ".cart-page-content-review-delivery"
+    );
 
-      // console.log(orderSummaryObject.items);
+    for (let i = 0; i < productSelector.length; i++) {
+      const productDeliverySelector = productSelector[i].querySelectorAll(
+        ".delivery-option-container"
+      );
+
+      ///////////////////////////////
+      /////////////////////////////
+      const defaultSelectors = productSelector[i].querySelectorAll(
+        ".cart-delivery-selector"
+      );
+      for (let k = 0; k < defaultSelectors.length; k++) {
+        if (currentShippingLevelSelector[i] == k) {
+          defaultSelectors[k].setAttribute("checked", "checked");
+        }
+      }
+
+      //////////////////////////
+      ////////////////////////
+      for (let j = 0; j < productDeliverySelector.length; j++) {
+        const deliveryHeader = document.querySelectorAll(
+          ".cart-page-content-review-header"
+        );
+
+        const productDeliverySelectorButton = productDeliverySelector[
+          j
+        ].querySelector(".cart-delivery-selector");
+        productDeliverySelector[j].addEventListener("click", changeShipping);
+
+        function changeShipping() {
+          productDeliverySelectorButton.checked = true;
+
+          if (j == 0) {
+            currentShippingLevel[i] = shippingLevel3;
+          } else if (j == 1) {
+            currentShippingLevel[i] = shippingLevel2;
+          } else if (j == 2) {
+            currentShippingLevel[i] = shippingLevel1;
+          }
+          deliveryHeader[
+            i
+          ].textContent = `Delivery date: ${currentShippingLevel[i]}`;
+
+          sessionStorage.setItem(
+            "currentShippingLevel",
+            JSON.stringify(currentShippingLevel)
+          );
+
+          currentShippingLevelSelector[i] = j;
+          sessionStorage.setItem(
+            "currentShippingSelector",
+            JSON.stringify(currentShippingLevelSelector)
+          );
+          orderSummary();
+        }
+      }
     }
-  } else {
-    orderSummaryObject.items = 0;
-    items.textContent = items.textContent = `$0.00`;
   }
-}
 
+  orderSummary();
+  function orderSummary() {
+    //items
+    if (boughtItems.length !== 0) {
+      let shippingTotal = 0;
+      orderSummaryObject.items = 0;
+      for (let i = 0; i < boughtItems.length; i++) {
+        // boughtItems[i].price = boughtItems[i].price.slice(1);
+        boughtItems[i].price = Number(boughtItems[i].price).toFixed(2);
+
+        orderSummaryObject.items +=
+          boughtItems[i].price * boughtItems[i].quantity;
+
+        items.textContent = `$${orderSummaryObject.items.toFixed(2)}`;
+
+        //shipping
+        currentShippingLevelSelector[i] == 1
+          ? (shippingTotal += 4.99)
+          : (shippingTotal = shippingTotal);
+        currentShippingLevelSelector[i] == 2
+          ? (shippingTotal += 9.99)
+          : (shippingTotal = shippingTotal);
+        shipping.textContent = `$${shippingTotal.toFixed(2)}`;
+      }
+
+      //total before tax
+      orderSummaryObject.totalBeforeTax = (
+        orderSummaryObject.items + shippingTotal
+      ).toFixed(2);
+      totalBeforeTax.textContent = `$${orderSummaryObject.totalBeforeTax}`;
+
+      //tax
+      orderSummaryObject.tax = (
+        orderSummaryObject.totalBeforeTax * 0.1
+      ).toFixed(2);
+
+      tax.textContent = `$${orderSummaryObject.tax}`;
+
+      //total
+
+      orderSummaryObject.total = (
+        Number(orderSummaryObject.tax) +
+        Number(orderSummaryObject.totalBeforeTax)
+      ).toFixed(2);
+      total.textContent = `$${orderSummaryObject.total}`;
+    } else {
+      orderSummaryObject.items = 0;
+      orderSummaryObject.totalBeforeTax = 0;
+      orderSummaryObject.tax = 0;
+      orderSummaryObject.total = 0;
+      items.textContent = `$0.00`;
+      shipping.textContent = `$0.00`;
+      totalBeforeTax.textContent = `$0.00`;
+      tax.textContent = `$0.00`;
+      total.textContent = `$0.00`;
+    }
+  }
+};
 let quantity = 0;
 let cartCount = 0;
 let cartCountTemp = sessionStorage.getItem("cartCountTemp", cartCount);
@@ -212,16 +373,5 @@ product.addToCart.forEach((button) => {
       });
     }
     sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
-
-    // createElements();
   });
 });
-
-// function createElements() {
-//   for (let i = 0; i < boughtItems.length; i++) {
-//     const nameDiv = document.createElement("div");
-//     const quantityDiv = document.createElement("div");
-//     nameDiv.textContent = boughtItems[i].name;
-//     quantityDiv.textContent = boughtItems[i].quantity;
-//   }
-// }

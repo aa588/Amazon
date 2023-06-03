@@ -105,22 +105,25 @@ body {
   display: grid;
   grid-template-rows: 50px repeat(2, 20px);
 }
-#cart-page-content-review-header {
+.cart-page-content-review-header {
   display: flex;
   align-items: center;
   justify-content: left;
   margin-left: 12px;
+  font-size: 16px;
+  color: rgb(5, 88, 5);
+  font-weight: 500;
 }
 #cart-page-content-review-details {
   flex: 1;
   width: 60%;
 }
-#cart-page-content-review-delivery {
+.cart-page-content-review-delivery {
   flex: 1;
 }
 
 #cart-page-content-review-details,
-#cart-page-content-review-delivery {
+.cart-page-content-review-delivery {
   grid-row: 2 / 3;
 }
 
@@ -160,9 +163,7 @@ body {
   margin-bottom: 10px;
 }
 
-#delivery-option1-container,
-#delivery-option2-container,
-#delivery-option3-container {
+.delivery-option-container {
   display: flex;
   flex-direction: row;
   gap: 10px;
