@@ -1,10 +1,60 @@
+const searchInput = document.querySelector("#search-input");
+const searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", () => {
+  filterProducts();
+});
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    filterProducts();
+  }
+});
+
+function filterProducts() {
+  const searchQuery = searchInput.value.toLowerCase();
+  const products = document.querySelectorAll(".product-container");
+
+  if (searchQuery === "") {
+    products.forEach((product) => {
+      product.style.display = "block";
+    });
+  } else {
+    products.forEach((product) => {
+      const productName = product
+        .querySelector(".product-name")
+        .textContent.toLowerCase();
+      if (productName.includes(searchQuery)) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+  }
+}
+
+filterProducts();
+
+// sessionStorage.clear();
+// sessionStorage.clear();
+
 const items = document.querySelector("#items");
 const shipping = document.querySelector("#shipping");
 const totalBeforeTax = document.querySelector("#totalBeforeTax");
 const tax = document.querySelector("#tax");
 const total = document.querySelector("#total");
-// sessionStorage.clear();
-// sessionStorage.clear();
+
+let quantity = 0;
+let cartCount = 0;
+const cartCountDisplay = document.querySelector("#cart-items-count");
+
+let cartCountTemp = sessionStorage.getItem("cartCountTemp") || quantity;
+cartCountTemp = Number(cartCountTemp);
+cartCount = Number(cartCountTemp);
+
+if (cartCountDisplay !== null) {
+  cartCountDisplay.innerHTML = cartCountTemp;
+}
+
 const orderSummaryObject = {
   items: 0,
   shipping: 0,
@@ -16,8 +66,6 @@ const orderSummaryObject = {
 let shippingLevel1;
 let shippingLevel2;
 let shippingLevel3;
-
-// let currentShippingLevelSelector;
 
 shippingDate();
 function shippingDate() {
@@ -38,32 +86,20 @@ function shippingDate() {
 }
 
 //define shipping levels
-let currentShippingLevel = [];
 
 const savedCurrentShippingLevel = JSON.parse(
   sessionStorage.getItem("currentShippingLevel")
 );
 
-currentShippingLevel = savedCurrentShippingLevel || [currentShippingLevel];
-
 //define shipping selector
 let currentShippingLevelSelector = [];
 
-const savedCurrentShippingLevelSelector = JSON.parse(
-  sessionStorage.getItem("currentShippingSelector")
-);
-
-currentShippingLevelSelector = savedCurrentShippingLevelSelector || [];
-
-/////////////////////
-let boughtItems = JSON.parse(sessionStorage.getItem("productsStorage")) || [];
-
-// let storedData = JSON.parse(sessionStorage.getItem("productsStorage"));
-
-const cartCountDisplay = document.querySelector("#cart-items-count");
+const savedCurrentShippingLevelSelector =
+  JSON.parse(sessionStorage.getItem("currentShippingSelector")) || [];
 
 window.onload = function () {
   // cartCountDisplay;
+
   document.querySelector(
     "#checkoutItems"
   ).textContent = `Checkout (${cartCount} items)`;
@@ -71,11 +107,11 @@ window.onload = function () {
 
   for (let i = 0; i < boughtItems.length; i++) {
     //setting default shipping level
-    if (savedCurrentShippingLevel === null) {
+    if (currentShippingLevel[i] == null) {
       currentShippingLevel[i] = shippingLevel3;
     }
 
-    if (savedCurrentShippingLevelSelector === null) {
+    if (currentShippingLevelSelector[i] == null) {
       currentShippingLevelSelector[i] = 0;
     }
 
@@ -150,18 +186,45 @@ window.onload = function () {
       let currentIndex = boughtItems.findIndex((item) => item.name === proName);
       if (currentIndex !== -1) {
         boughtItems.splice(currentIndex, 1); // remove the item at the index
-        currentShippingLevelSelector.splice(currentIndex, 1);
         currentShippingLevel.splice(currentIndex, 1);
+        currentShippingLevelSelector.splice(currentIndex, 1);
+
+        sessionStorage.setItem(
+          "currentShippingSelector",
+          JSON.stringify(currentShippingLevelSelector)
+        );
+        sessionStorage.setItem(
+          "currentShippingLevel",
+          JSON.stringify(currentShippingLevel)
+        );
       }
       sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
+
       orderSummary();
+      shippingSelect();
+      updateCheckout();
     });
+
+    //update checkout when deleting items
+    function updateCheckout() {
+      let cartCount = 0;
+      for (let i = 0; i < boughtItems.length; i++) {
+        cartCount += boughtItems[i].quantity;
+      }
+
+      document.querySelector(
+        "#checkoutItems"
+      ).textContent = `Checkout (${cartCount} items)`;
+    }
+
+    sessionStorage.setItem("cartCount", cartCount);
 
     // boughtItems = storedData;
   });
 
   shippingSelect();
   function shippingSelect() {
+    console.log("asdsad");
     //default settings
 
     const productSelector = document.querySelectorAll(
@@ -284,13 +347,12 @@ window.onload = function () {
     }
   }
 };
-let quantity = 0;
-let cartCount = 0;
-let cartCountTemp = sessionStorage.getItem("cartCountTemp", cartCount);
-cartCountTemp = Number(cartCountTemp);
-cartCount = Number(cartCountTemp);
 
-// cartCountDisplay.textContent = cartCountTemp;
+let currentShippingLevel = [];
+currentShippingLevel = savedCurrentShippingLevel || [currentShippingLevel];
+currentShippingLevelSelector = savedCurrentShippingLevelSelector || [];
+
+let boughtItems = JSON.parse(sessionStorage.getItem("productsStorage")) || [];
 
 const product = {
   container: document.querySelectorAll(".product-container"),
@@ -331,6 +393,12 @@ function selectVariation() {
 
 updateCart();
 function updateCart() {
+  //start from zero to make sure deleted items are deleted
+  let cartCount = 0;
+  for (let i = 0; i < boughtItems.length; i++) {
+    cartCount += boughtItems[i].quantity;
+  }
+  cartCountDisplay.textContent = cartCount;
   for (let i = 0; i < product.addToCart.length; i++) {
     product.addToCart[i].addEventListener("click", addToCart);
     product.addToCart[i].addEventListener("click", addText);
@@ -338,7 +406,7 @@ function updateCart() {
       quantity = Number(product.quantity[i].value);
       cartCount += quantity;
 
-      cartCountDisplay.innerHTML = cartCount;
+      cartCountDisplay.textContent = cartCount;
       sessionStorage.setItem("cartCountTemp", cartCount);
     }
     function addText() {
