@@ -24,3 +24,8 @@ html {
 button {
   cursor: pointer;
 }
+
+.product-price-currency {
+  display: inline-block;
+  margin-right: 5px;
+}

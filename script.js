@@ -1,39 +1,3 @@
-const searchInput = document.querySelector("#search-input");
-const searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", () => {
-  filterProducts();
-});
-
-searchInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    filterProducts();
-  }
-});
-
-function filterProducts() {
-  const searchQuery = searchInput.value.toLowerCase();
-  const products = document.querySelectorAll(".product-container");
-
-  if (searchQuery === "") {
-    products.forEach((product) => {
-      product.style.display = "block";
-    });
-  } else {
-    products.forEach((product) => {
-      const productName = product
-        .querySelector(".product-name")
-        .textContent.toLowerCase();
-      if (productName.includes(searchQuery)) {
-        product.style.display = "block";
-      } else {
-        product.style.display = "none";
-      }
-    });
-  }
-}
-
-filterProducts();
-
 // sessionStorage.clear();
 // sessionStorage.clear();
 
@@ -49,7 +13,7 @@ const cartCountDisplay = document.querySelector("#cart-items-count");
 
 let cartCountTemp = sessionStorage.getItem("cartCountTemp") || quantity;
 cartCountTemp = Number(cartCountTemp);
-cartCount = Number(cartCountTemp);
+// cartCount = Number(cartCountTemp);
 
 if (cartCountDisplay !== null) {
   cartCountDisplay.innerHTML = cartCountTemp;
@@ -100,11 +64,6 @@ const savedCurrentShippingLevelSelector =
 window.onload = function () {
   // cartCountDisplay;
 
-  document.querySelector(
-    "#checkoutItems"
-  ).textContent = `Checkout (${cartCount} items)`;
-  const temp = document.querySelector("#cart-page-content-products");
-
   for (let i = 0; i < boughtItems.length; i++) {
     //setting default shipping level
     if (currentShippingLevel[i] == null) {
@@ -115,17 +74,22 @@ window.onload = function () {
       currentShippingLevelSelector[i] = 0;
     }
 
+    const temp = document.querySelector("#cart-page-content-products");
+
     const newItem = document.createElement("div");
     newItem.innerHTML = `<div id="cart-page-content-review">
     <div class="cart-page-content-review-header">Delivery date: ${currentShippingLevel[i]}</div>
     <div id="cart-page-content-review-details">
-      <div id="cart-product-picture">x</div>
+      <div class="cart-product-picture-container">
+      <img class="cart-product-picture" src="${boughtItems[i].picture}">
+      </div>
       <div id="cart-product-details">
         <div class = "proName">${boughtItems[i].name}</div>
         <div class="price">${boughtItems[i].price}</div>
         <div id="cart-product-quantity-container">
-          <div id="cart-product-quantity">Quantity: ${boughtItems[i].quantity}</div>
-          <label id="cart-update-quantity">Update</label>
+          <div id="cart-product-quantity">Quantity:      <input type="number" class="cart-product-quantity-input-hide">  <span class = "cart-product-product-quantity-number">${boughtItems[i].quantity}</span> </div>
+     
+          <label class="cart-update-quantity">Update</label>
           <button id="delete${i}" class="cart-delete-quantity" >Delete</button>
         </div>
       </div>
@@ -171,6 +135,59 @@ window.onload = function () {
     temp.appendChild(newItem);
   }
 
+  inputChange();
+  function inputChange() {
+    const inputChangers = document.querySelectorAll(
+      ".cart-product-quantity-input-hide"
+    );
+    const inputUpdaters = document.querySelectorAll(".cart-update-quantity");
+
+    const inputNumbers = document.querySelectorAll(
+      ".cart-product-product-quantity-number"
+    );
+    for (let i = 0; i < boughtItems.length; i++) {
+      inputChangers[i].value = boughtItems[i].quantity;
+      inputUpdaters[i].addEventListener("click", () => {
+        if (inputUpdaters[i].textContent === "Update") {
+          inputUpdaters[i].textContent = "Save";
+          inputNumbers[i].classList.add(
+            "cart-product-product-quantity-number-hide"
+          );
+        } else {
+          inputNumbers[i].classList.remove(
+            "cart-product-product-quantity-number-hide"
+          );
+          inputUpdaters[i].textContent = "Update";
+        }
+
+        if (
+          inputChangers[i].classList.contains(
+            "cart-product-quantity-input-hide"
+          )
+        ) {
+          inputChangers[i].classList.remove("cart-product-quantity-input-hide");
+          inputChangers[i].classList.add("cart-product-quantity-input-show");
+        } else {
+          inputChangers[i].classList.remove("cart-product-quantity-input-show");
+          inputChangers[i].classList.add("cart-product-quantity-input-hide");
+        }
+
+        if (inputChangers[i].value > 0) {
+          inputNumbers[i].textContent = inputChangers[i].value;
+        } else {
+          alert("This is not a valid number");
+          inputChangers[i].value = boughtItems[i].quantity;
+        }
+
+        boughtItems[i].quantity = inputNumbers[i].textContent;
+
+        orderSummary();
+        updateCheckout();
+        sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
+      });
+    }
+  }
+
   const deleteButtons = document.querySelectorAll(".cart-delete-quantity");
   deleteButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -206,25 +223,28 @@ window.onload = function () {
     });
 
     //update checkout when deleting items
-    function updateCheckout() {
-      let cartCount = 0;
-      for (let i = 0; i < boughtItems.length; i++) {
-        cartCount += boughtItems[i].quantity;
-      }
-
-      document.querySelector(
-        "#checkoutItems"
-      ).textContent = `Checkout (${cartCount} items)`;
-    }
-
-    sessionStorage.setItem("cartCount", cartCount);
 
     // boughtItems = storedData;
   });
 
+  updateCheckout();
+  function updateCheckout() {
+    cartCount = 0;
+    for (let i = 0; i < boughtItems.length; i++) {
+      cartCount += Number(boughtItems[i].quantity);
+    }
+    document.querySelector(
+      "#itemsCountText"
+    ).textContent = `Items (${cartCount}):`;
+    document.querySelector(
+      "#checkoutItems"
+    ).textContent = `Checkout (${cartCount} items)`;
+    sessionStorage.setItem("checkoutCountDisplay", cartCount);
+    sessionStorage.setItem("cartCount", cartCount);
+  }
+
   shippingSelect();
   function shippingSelect() {
-    console.log("asdsad");
     //default settings
 
     const productSelector = document.querySelectorAll(
@@ -287,6 +307,10 @@ window.onload = function () {
         }
       }
     }
+
+    document.querySelector(
+      "#checkoutItems"
+    ).textContent = `Checkout (${cartCount} items)`;
   }
 
   orderSummary();
@@ -424,6 +448,7 @@ product.addToCart.forEach((button) => {
     const parent = button.parentElement.parentElement;
     const productName = parent.querySelector(".product-name").textContent;
     const productPrice = parent.querySelector(".product-price").textContent;
+    const productPicture = parent.querySelector(".product-picture").src;
 
     let productQuantity = parent.querySelector(
       '[name="product-quantity"]'
@@ -438,8 +463,44 @@ product.addToCart.forEach((button) => {
         name: productName,
         quantity: productQuantity,
         price: productPrice,
+        picture: productPicture,
       });
     }
+    console.log(boughtItems);
     sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
   });
 });
+
+const searchInput = document.querySelector("#search-input");
+const searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", () => {
+  filterProducts();
+});
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    filterProducts();
+  }
+});
+
+function filterProducts() {
+  const searchQuery = searchInput.value.toLowerCase();
+  const products = document.querySelectorAll(".product-container");
+
+  if (searchQuery === "") {
+    products.forEach((product) => {
+      product.style.display = "block";
+    });
+  } else {
+    products.forEach((product) => {
+      const productName = product
+        .querySelector(".product-name")
+        .textContent.toLowerCase();
+      if (productName.includes(searchQuery)) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+  }
+}
