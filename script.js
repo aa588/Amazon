@@ -63,6 +63,15 @@ const savedCurrentShippingLevelSelector =
 
 window.onload = function () {
   // cartCountDisplay;
+  hideEmptycartDiv();
+  function hideEmptycartDiv() {
+    const emtpyCart = document.querySelector("#emptyCart");
+    if (boughtItems.length == []) {
+      emtpyCart.style.display = "block";
+    } else {
+      emtpyCart.style.display = "none";
+    }
+  }
 
   for (let i = 0; i < boughtItems.length; i++) {
     //setting default shipping level
@@ -233,6 +242,7 @@ window.onload = function () {
       orderSummary();
       shippingSelect();
       updateCheckout();
+      hideEmptycartDiv();
     });
 
     //update checkout when deleting items
@@ -502,19 +512,19 @@ product.addToCart.forEach((button) => {
 
     if (productVariationA == null && productVariationB == null) {
       existingItem = boughtItems.find((item) => item.name === productName);
-    } else if (productVariationA !== "" && productVariationB == null) {
+    } else if (productVariationA !== null && productVariationB == null) {
       existingItem = boughtItems.find(
         (item) =>
           item.name === productName &&
           item.variationA === productVariationA.textContent
       );
-    } else if (productVariationA == null && productVariationB !== "") {
+    } else if (productVariationA == null && productVariationB !== null) {
       existingItem = boughtItems.find(
         (item) =>
           item.name === productName &&
           item.variationB === productVariationB.textContent
       );
-    } else if (productVariationA !== "" && productVariationB !== "") {
+    } else if (productVariationA !== null && productVariationB !== null) {
       existingItem = boughtItems.find(
         (item) =>
           item.name === productName &&

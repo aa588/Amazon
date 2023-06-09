@@ -402,3 +402,27 @@ body {
     cursor: pointer;
   }
 }
+
+#emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  gap: 5px;
+}
+
+#buyProductsButton {
+  padding: 10px 30px;
+  background-color: rgb(255, 216, 20);
+  border-radius: 8px;
+  font-size: 18px;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  padding: 0px;
+}
+
+#buyProductsText {
+  font-weight: 300;
+  font-size: 18px;
+}
