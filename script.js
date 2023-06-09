@@ -86,6 +86,12 @@ window.onload = function () {
       <div id="cart-product-details">
         <div class = "proName">${boughtItems[i].name}</div>
         <div class="price">${boughtItems[i].price}</div>
+
+
+        <div class="varA">Color: ${boughtItems[i].variationA}</div>
+        <div class="varB">Size: ${boughtItems[i].variationB}</div>
+
+
         <div id="cart-product-quantity-container">
           <div id="cart-product-quantity">Quantity:      <input type="number" class="cart-product-quantity-input-hide">  <span class = "cart-product-product-quantity-number">${boughtItems[i].quantity}</span> </div>
      
@@ -133,6 +139,13 @@ window.onload = function () {
     </div>
   </div>`;
     temp.appendChild(newItem);
+
+    if (boughtItems[i].variationA == null) {
+      document.querySelector(".varA").remove();
+    }
+    if (boughtItems[i].variationB == null) {
+      document.querySelector(".varB").remove();
+    }
   }
 
   inputChange();
@@ -386,8 +399,8 @@ const product = {
   addToCart: document.querySelectorAll(".addToCartButton"),
   addedText: document.querySelectorAll(".product-added-container"),
   quantity: document.querySelectorAll("#product-quantity-choices"),
-  variationFirst: document.querySelectorAll(".product-variation-container"),
-  variationSecond: document.querySelectorAll(".product-variation-container"),
+  variationFirst: document.querySelectorAll(".product-variationA-container"),
+  variationSecond: document.querySelectorAll(".product-variationB-container"),
 };
 
 selectVariation();
@@ -410,6 +423,28 @@ function selectVariation() {
         product.picture[i].setAttribute("data-id", array[i][j].textContent);
         let pictureSRC = `pic/product${i + 1}-var${j + 1}.jpg`;
         product.picture[i].src = pictureSRC;
+      }
+    }
+  }
+}
+
+selectVariationB();
+function selectVariationB() {
+  let array = [];
+  product.variationSecond.forEach((variation, index) => {
+    const buttons = product.variationSecond[index].querySelectorAll("button");
+    array.push(buttons);
+  });
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      array[i][0].classList.add("product-variationB-selected");
+      array[i][j].addEventListener("click", select);
+
+      function select() {
+        for (let k = 0; k < array[i].length; k++) {
+          array[i][k].classList.remove("product-variationB-selected");
+        }
+        array[i][j].classList.add("product-variationB-selected");
       }
     }
   }
@@ -454,27 +489,69 @@ product.addToCart.forEach((button) => {
     const productPicture = parent.querySelector(".product-picture").src;
     const productVariationA = parent.querySelector(
       ".product-variation-selected"
-    ).textContent;
+    );
+    const productVariationB = parent.querySelector(
+      ".product-variationB-selected"
+    );
     let productQuantity = parent.querySelector(
       '[name="product-quantity"]'
     ).value;
-
     productQuantity = parseInt(productQuantity);
-    const existingItem = boughtItems.find(
-      (item) =>
-        item.name === productName && item.variationA === productVariationA
-    );
+
+    let existingItem;
+
+    if (productVariationA == null && productVariationB == null) {
+      existingItem = boughtItems.find((item) => item.name === productName);
+    } else if (productVariationA !== "" && productVariationB == null) {
+      existingItem = boughtItems.find(
+        (item) =>
+          item.name === productName &&
+          item.variationA === productVariationA.textContent
+      );
+    } else if (productVariationA == null && productVariationB !== "") {
+      existingItem = boughtItems.find(
+        (item) =>
+          item.name === productName &&
+          item.variationB === productVariationB.textContent
+      );
+    } else if (productVariationA !== "" && productVariationB !== "") {
+      existingItem = boughtItems.find(
+        (item) =>
+          item.name === productName &&
+          item.variationA === productVariationA.textContent &&
+          item.variationB === productVariationB.textContent
+      );
+    }
+
     if (existingItem) {
       existingItem.quantity += parseInt(productQuantity);
-    } else {
+    } else if (productVariationA !== null && productVariationB !== null) {
       boughtItems.push({
         name: productName,
         quantity: productQuantity,
         price: productPrice,
         picture: productPicture,
-        variationA: productVariationA,
+        variationA: productVariationA.textContent,
+        variationB: productVariationB.textContent,
+      });
+    } else if (productVariationA !== null && productVariationB == null) {
+      boughtItems.push({
+        name: productName,
+        quantity: productQuantity,
+        price: productPrice,
+        picture: productPicture,
+        variationA: productVariationA.textContent,
+      });
+    } else if (productVariationA == null && productVariationB !== null) {
+      boughtItems.push({
+        name: productName,
+        quantity: productQuantity,
+        price: productPrice,
+        picture: productPicture,
+        variationB: productVariationB.textContent,
       });
     }
+
     console.log(boughtItems);
     sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
   });
