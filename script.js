@@ -179,7 +179,7 @@ window.onload = function () {
           inputChangers[i].value = boughtItems[i].quantity;
         }
 
-        boughtItems[i].quantity = inputNumbers[i].textContent;
+        boughtItems[i].quantity = Number(inputNumbers[i].textContent);
 
         orderSummary();
         updateCheckout();
@@ -443,19 +443,27 @@ function updateCart() {
   }
 }
 
+// sessionStorage.clear();
+// sessionStorage.clear();
+
 product.addToCart.forEach((button) => {
   button.addEventListener("click", () => {
     const parent = button.parentElement.parentElement;
     const productName = parent.querySelector(".product-name").textContent;
     const productPrice = parent.querySelector(".product-price").textContent;
     const productPicture = parent.querySelector(".product-picture").src;
-
+    const productVariationA = parent.querySelector(
+      ".product-variation-selected"
+    ).textContent;
     let productQuantity = parent.querySelector(
       '[name="product-quantity"]'
     ).value;
 
     productQuantity = parseInt(productQuantity);
-    const existingItem = boughtItems.find((item) => item.name === productName);
+    const existingItem = boughtItems.find(
+      (item) =>
+        item.name === productName && item.variationA === productVariationA
+    );
     if (existingItem) {
       existingItem.quantity += parseInt(productQuantity);
     } else {
@@ -464,6 +472,7 @@ product.addToCart.forEach((button) => {
         quantity: productQuantity,
         price: productPrice,
         picture: productPicture,
+        variationA: productVariationA,
       });
     }
     console.log(boughtItems);
