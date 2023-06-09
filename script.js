@@ -97,8 +97,8 @@ window.onload = function () {
         <div class="price">${boughtItems[i].price}</div>
 
 
-        <div class="varA">Color: ${boughtItems[i].variationA}</div>
-        <div class="varB">Size: ${boughtItems[i].variationB}</div>
+        <div  class="varA">Color: ${boughtItems[i].variationA}</div>
+        <div id=${i} class="varB">Size: ${boughtItems[i].variationB}</div>
 
 
         <div id="cart-product-quantity-container">
@@ -148,13 +148,6 @@ window.onload = function () {
     </div>
   </div>`;
     temp.appendChild(newItem);
-
-    if (boughtItems[i].variationA == null) {
-      document.querySelector(".varA").remove();
-    }
-    if (boughtItems[i].variationB == null) {
-      document.querySelector(".varB").remove();
-    }
   }
 
   inputChange();
