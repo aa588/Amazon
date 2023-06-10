@@ -108,29 +108,3 @@
     height: auto;
   }
 }
-
-@media screen and (max-width: 500px) {
-  #cart-page-content-review {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  }
-
-  #checkout {
-    margin-right: 100px;
-  }
-
-  #cart-page-content-products {
-    margin-right: 100px;
-  }
-
-  #cart-page-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: left;
-  }
-
-  #cart-page-container {
-  }
-}
