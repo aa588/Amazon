@@ -105,7 +105,7 @@ window.onload = function () {
         <div id="cart-product-quantity-container">
           <div id="cart-product-quantity">Quantity:      <input type="number" class="cart-product-quantity-input-hide">  <span class = "cart-product-product-quantity-number">${boughtItems[i].quantity}</span> </div>
      
-          <label class="cart-update-quantity">Update</label>
+          <label id="${i}" class="cart-update-quantity">Update</label>
           <button id="delete${i}" class="cart-delete-quantity" >Delete</button>
         </div>
       </div>
@@ -175,53 +175,69 @@ window.onload = function () {
 
   inputChange();
   function inputChange() {
-    const inputChangers = document.querySelectorAll(
+    let inputChangers = document.querySelectorAll(
       ".cart-product-quantity-input-hide"
     );
-    const inputUpdaters = document.querySelectorAll(".cart-update-quantity");
+    let inputUpdaters = document.querySelectorAll(".cart-update-quantity");
 
-    const inputNumbers = document.querySelectorAll(
+    let inputNumbers = document.querySelectorAll(
       ".cart-product-product-quantity-number"
     );
+
     for (let i = 0; i < boughtItems.length; i++) {
-      inputChangers[i].value = boughtItems[i].quantity;
-      inputUpdaters[i].addEventListener("click", () => {
-        if (inputUpdaters[i].textContent === "Update") {
-          inputUpdaters[i].textContent = "Save";
-          inputNumbers[i].classList.add(
+      inputUpdaters[i].setAttribute("id", i);
+      inputChangers[i].setAttribute("id", i);
+      inputNumbers[i].setAttribute("id", i);
+      let index = inputUpdaters[i].id;
+      console.log(index);
+
+      inputChangers[index].value = boughtItems[i].quantity;
+      inputUpdaters[index].addEventListener("click", () => {
+        if (inputUpdaters[index].textContent === "Update") {
+          inputUpdaters[index].textContent = "Save";
+          inputNumbers[index].classList.add(
             "cart-product-product-quantity-number-hide"
           );
         } else {
-          inputNumbers[i].classList.remove(
+          inputNumbers[index].classList.remove(
             "cart-product-product-quantity-number-hide"
           );
-          inputUpdaters[i].textContent = "Update";
+          inputUpdaters[index].textContent = "Update";
         }
 
         if (
-          inputChangers[i].classList.contains(
+          inputChangers[index].classList.contains(
             "cart-product-quantity-input-hide"
           )
         ) {
-          inputChangers[i].classList.remove("cart-product-quantity-input-hide");
-          inputChangers[i].classList.add("cart-product-quantity-input-show");
+          inputChangers[index].classList.remove(
+            "cart-product-quantity-input-hide"
+          );
+          inputChangers[index].classList.add(
+            "cart-product-quantity-input-show"
+          );
         } else {
-          inputChangers[i].classList.remove("cart-product-quantity-input-show");
-          inputChangers[i].classList.add("cart-product-quantity-input-hide");
+          inputChangers[index].classList.remove(
+            "cart-product-quantity-input-show"
+          );
+          inputChangers[index].classList.add(
+            "cart-product-quantity-input-hide"
+          );
         }
 
-        if (inputChangers[i].value > 0) {
-          inputNumbers[i].textContent = inputChangers[i].value;
+        if (inputChangers[index].value > 0) {
+          inputNumbers[index].textContent = inputChangers[index].value;
         } else {
           alert("This is not a valid number");
-          inputChangers[i].value = boughtItems[i].quantity;
+          inputChangers[index].value = boughtItems[i].quantity;
         }
 
-        boughtItems[i].quantity = Number(inputNumbers[i].textContent);
+        boughtItems[i].quantity = Number(inputNumbers[index].textContent);
 
         orderSummary();
         updateCheckout();
         sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
+        console.log(boughtItems);
       });
     }
   }
@@ -259,6 +275,7 @@ window.onload = function () {
       shippingSelect();
       updateCheckout();
       hideEmptycartDiv();
+      inputChange();
     });
 
     //update checkout when deleting items
