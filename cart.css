@@ -426,3 +426,9 @@ body {
   font-weight: 300;
   font-size: 18px;
 }
+
+.cart-product-details-first-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

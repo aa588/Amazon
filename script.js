@@ -93,12 +93,13 @@ window.onload = function () {
       <img class="cart-product-picture" src="${boughtItems[i].picture}">
       </div>
       <div id="cart-product-details">
-        <div class = "proName">${boughtItems[i].name}</div>
-        <div class="price">${boughtItems[i].price}</div>
 
+      <div id="cart-product-details-first-section${i}" class="cart-product-details-first-section">  
+          <div class = "proName">${boughtItems[i].name}</div>
+         <div class="price">${boughtItems[i].price}</div>
+      </div>
+    
 
-        <div  class="varA">Color: ${boughtItems[i].variationA}</div>
-        <div id=${i} class="varB">Size: ${boughtItems[i].variationB}</div>
 
 
         <div id="cart-product-quantity-container">
@@ -148,6 +149,28 @@ window.onload = function () {
     </div>
   </div>`;
     temp.appendChild(newItem);
+    appendVariation();
+
+    function appendVariation() {
+      const variationDiv = document.querySelectorAll(
+        ".cart-product-details-first-section"
+      );
+
+      if (boughtItems[i].variationA) {
+        const currentVariationDiv = variationDiv.item(i);
+        const variationADiv = document.createElement("div");
+        variationADiv.classList.add("varA");
+        variationADiv.textContent = `Color: ${boughtItems[i].variationA}`;
+        currentVariationDiv.appendChild(variationADiv);
+      }
+      if (boughtItems[i].variationB) {
+        const currentVariationDiv = variationDiv.item(i);
+        const variationBDiv = document.createElement("div");
+        variationBDiv.classList.add("varB");
+        variationBDiv.textContent = `Size: ${boughtItems[i].variationB}`;
+        currentVariationDiv.appendChild(variationBDiv);
+      }
+    }
   }
 
   inputChange();
@@ -553,6 +576,13 @@ product.addToCart.forEach((button) => {
         picture: productPicture,
         variationB: productVariationB.textContent,
       });
+    } else if (productVariationA == null && productVariationB == null) {
+      boughtItems.push({
+        name: productName,
+        quantity: productQuantity,
+        price: productPrice,
+        picture: productPicture,
+      });
     }
 
     console.log(boughtItems);
@@ -593,3 +623,9 @@ function filterProducts() {
     });
   }
 }
+
+window.addEventListener("resize", function () {
+  window.innerWidth <= 400
+    ? (document.querySelector("#logo").src = "pic/amazon-mobile-logo-white.png")
+    : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+});

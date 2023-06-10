@@ -1,0 +1,136 @@
+@media screen and (max-width: 400px) {
+  .addToCartButton {
+    width: 100%;
+  }
+
+  #header {
+    background-color: rgb(19, 25, 33);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    height: 55px;
+    z-index: 999;
+    padding: 0px 10px;
+    gap: 2px;
+    flex-direction: row;
+    box-shadow: 0px 5px 15px rgb(61, 47, 1, 0.3);
+  }
+
+  #left-section {
+  }
+
+  #middle-section {
+    align-items: center;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    flex: auto;
+
+    justify-content: center;
+  }
+
+  #right-section {
+    margin-right: 5px;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #cart-text {
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  #cart-items-count {
+    font-size: 15px;
+  }
+
+  #logo {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  #search-input {
+    height: 40px;
+    width: 100%;
+
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-size: 15px;
+    padding-left: 10px;
+    border: none;
+    /* position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+  }
+
+  #search-button {
+    height: 40px;
+  }
+
+  #cart-icon {
+    width: 35px;
+    height: 30px;
+  }
+
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid rgb(233, 233, 233);
+    padding-top: 40px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    /* display: grid;
+    grid-template-rows: 30% 10% repeat(3, 10%); set the height of the rows in the grid */
+  }
+
+  .product-picture-container {
+    width: auto;
+    height: 180px;
+    margin-bottom: 10px;
+
+    /* background-color: rgb(15, 40, 61); */
+  }
+
+  .product-picture {
+    max-width: 70%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #cart-page-content-review {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  #checkout {
+    margin-right: 100px;
+  }
+
+  #cart-page-content-products {
+    margin-right: 100px;
+  }
+
+  #cart-page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+  }
+
+  #cart-page-container {
+  }
+}
