@@ -13,7 +13,6 @@ const cartCountDisplay = document.querySelector("#cart-items-count");
 
 let cartCountTemp = sessionStorage.getItem("cartCountTemp") || quantity;
 cartCountTemp = Number(cartCountTemp);
-// cartCount = Number(cartCountTemp);
 
 if (cartCountDisplay !== null) {
   cartCountDisplay.innerHTML = cartCountTemp;
@@ -216,15 +215,6 @@ window.onload = function () {
         }
       };
     }
-
-    // boughtItems = JSON.parse(sessionStorage.getItem("productsStorage"));
-
-    // inputUpdaters.forEach((input) => {
-    //   input.addEventListener("click", update);
-    //   function update() {
-    //     console.log(this);
-    //     this.textContent = this.textContent === "Update" ? "Save" : "Update";
-    //   }
   }
 
   const deleteButtons = document.querySelectorAll(".cart-delete-quantity");
@@ -286,8 +276,6 @@ window.onload = function () {
 
   shippingSelect();
   function shippingSelect() {
-    //default settings
-
     const productSelector = document.querySelectorAll(
       ".cart-page-content-review-delivery"
     );
@@ -297,8 +285,6 @@ window.onload = function () {
         ".delivery-option-container"
       );
 
-      ///////////////////////////////
-      /////////////////////////////
       const defaultSelectors = productSelector[i].querySelectorAll(
         ".cart-delivery-selector"
       );
@@ -308,8 +294,6 @@ window.onload = function () {
         }
       }
 
-      //////////////////////////
-      ////////////////////////
       for (let j = 0; j < productDeliverySelector.length; j++) {
         const deliveryHeader = document.querySelectorAll(
           ".cart-page-content-review-header"
@@ -361,7 +345,6 @@ window.onload = function () {
       let shippingTotal = 0;
       orderSummaryObject.items = 0;
       for (let i = 0; i < boughtItems.length; i++) {
-        // boughtItems[i].price = boughtItems[i].price.slice(1);
         boughtItems[i].price = Number(boughtItems[i].price).toFixed(2);
 
         orderSummaryObject.items +=
