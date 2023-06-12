@@ -103,9 +103,9 @@ window.onload = function () {
 
 
         <div id="cart-product-quantity-container">
-          <div id="cart-product-quantity">Quantity:      <input type="number" class="cart-product-quantity-input-hide">  <span class = "cart-product-product-quantity-number">${boughtItems[i].quantity}</span> </div>
+          <div id="cart-product-quantity">Quantity:      <input type="number" class="cart-product-quantity-input-hide cart-product-quantity-input" value="${boughtItems[i].quantity}">  <span class = "cart-product-product-quantity-number">${boughtItems[i].quantity}</span> </div>
      
-          <label id="${i}" class="cart-update-quantity">Update</label>
+          <button id="${i}" class="cart-update-quantity">Update</button>
           <button id="delete${i}" class="cart-delete-quantity" >Delete</button>
         </div>
       </div>
@@ -176,70 +176,55 @@ window.onload = function () {
   inputChange();
   function inputChange() {
     let inputChangers = document.querySelectorAll(
-      ".cart-product-quantity-input-hide"
+      ".cart-product-quantity-input"
     );
     let inputUpdaters = document.querySelectorAll(".cart-update-quantity");
-
     let inputNumbers = document.querySelectorAll(
       ".cart-product-product-quantity-number"
     );
 
-    for (let i = 0; i < boughtItems.length; i++) {
-      inputUpdaters[i].setAttribute("id", i);
-      inputChangers[i].setAttribute("id", i);
-      inputNumbers[i].setAttribute("id", i);
-      let index = inputUpdaters[i].id;
-      console.log(index);
+    for (let i = 0; i < inputUpdaters.length; i++) {
+      inputUpdaters[i].setAttribute("data-id", i);
+      inputChangers[i].setAttribute("data-id", i);
+      inputNumbers[i].setAttribute("data-id", i);
+      let j = inputUpdaters[i].getAttribute("data-id");
 
-      inputChangers[index].value = boughtItems[i].quantity;
-      inputUpdaters[index].addEventListener("click", () => {
-        if (inputUpdaters[index].textContent === "Update") {
-          inputUpdaters[index].textContent = "Save";
-          inputNumbers[index].classList.add(
-            "cart-product-product-quantity-number-hide"
-          );
-        } else {
-          inputNumbers[index].classList.remove(
-            "cart-product-product-quantity-number-hide"
-          );
-          inputUpdaters[index].textContent = "Update";
-        }
-
-        if (
-          inputChangers[index].classList.contains(
-            "cart-product-quantity-input-hide"
+      inputUpdaters[j].onclick = function () {
+        this.textContent = this.textContent === "Update" ? "Save" : "Update";
+        inputChangers[j].classList.toggle(
+          "cart-product-quantity-input-hide",
+          inputChangers[j].classList.contains(
+            "cart-product-quantity-input-show"
           )
-        ) {
-          inputChangers[index].classList.remove(
-            "cart-product-quantity-input-hide"
-          );
-          inputChangers[index].classList.add(
+        );
+        inputChangers[j].classList.toggle(
+          "cart-product-quantity-input-show",
+          !inputChangers[j].classList.contains(
             "cart-product-quantity-input-show"
-          );
-        } else {
-          inputChangers[index].classList.remove(
-            "cart-product-quantity-input-show"
-          );
-          inputChangers[index].classList.add(
-            "cart-product-quantity-input-hide"
-          );
+          )
+        );
+
+        inputUpdaters[j].addEventListener("click", updateQuantity);
+        function updateQuantity() {
+          inputChangers[j].value <= 0
+            ? (alert("Please Enter a Valid Number"),
+              (inputChangers[j].value = boughtItems[j].quantity))
+            : (inputNumbers[j].textContent = inputChangers[j].value);
+          boughtItems[j].quantity = Number(inputNumbers[j].textContent);
+          orderSummary();
+          updateCheckout();
         }
-
-        if (inputChangers[index].value > 0) {
-          inputNumbers[index].textContent = inputChangers[index].value;
-        } else {
-          alert("This is not a valid number");
-          inputChangers[index].value = boughtItems[i].quantity;
-        }
-
-        boughtItems[i].quantity = Number(inputNumbers[index].textContent);
-
-        orderSummary();
-        updateCheckout();
-        sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
-        console.log(boughtItems);
-      });
+      };
     }
+
+    // boughtItems = JSON.parse(sessionStorage.getItem("productsStorage"));
+
+    // inputUpdaters.forEach((input) => {
+    //   input.addEventListener("click", update);
+    //   function update() {
+    //     console.log(this);
+    //     this.textContent = this.textContent === "Update" ? "Save" : "Update";
+    //   }
   }
 
   const deleteButtons = document.querySelectorAll(".cart-delete-quantity");
