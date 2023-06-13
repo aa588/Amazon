@@ -11,13 +11,11 @@
       rel="stylesheet"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Signika:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@200;300;400;500;600;700&family=Nunito+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="stylesheet" type="text/css" href="header.css" />
     <link rel="stylesheet" type="text/css" href="content.css" />
@@ -29,7 +27,7 @@
     <div id="main">
       <div id="header">
         <div id="left-section">
-          <a href="index.html"><img id="logo" src="pic/amazon-logo.png" /></a>
+          <a href="index.html"><img id="logo" class="website-logo" src="pic/amazon-logo.png" /></a>
         </div>
         <div id="middle-section">
           <input id="search-input" placeholder="Search" />
@@ -54,7 +52,7 @@
         
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product1-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product1-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs
@@ -94,7 +92,7 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product2-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product2-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">Intermediate Size Basketball
@@ -133,7 +131,7 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product3-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product3-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">Adults Plain Cotton T-Shirt - 2 Pack
@@ -172,7 +170,7 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product4-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product4-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">2 Slot Toaster - Black
@@ -211,7 +209,7 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product5-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product5-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">6 Piece White Dinner Plate Set
@@ -250,7 +248,7 @@
         
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product6-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product6-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">6-Piece Nonstick, Carbon Steel Oven Bakeware Baking
@@ -345,7 +343,7 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product8-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product8-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">Waterproof Knit Athletic Sneakers - Gray
@@ -395,7 +393,7 @@
 
         <div class="product-container">
           <div class="product-picture-container">
-            <img class="product-picture" src="pic/product9-var1.jpg" alt="" />
+            <img class="product-picture" src="pic/product9-var1.png" alt="" />
           </div>
           <div class="product-info-container">
             <p class="product-name">Round Sunglasses
@@ -424,6 +422,62 @@
           <div class="product-variationA-container">
             <button class="product-variationA-button">Black</button>
             <button class="product-variationA-button">Gold</button>
+          </div> 
+          <div class="spacer"></div>
+
+          <div class="product-addToCart-container">
+            <div class="product-added-container">
+              <img class="product-added-icon" src="pic/tick.png" />
+              <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+          </div>
+        </div>
+
+
+
+         
+
+        <div class="product-container">
+          <div class="product-picture-container">
+            <img class="product-picture" src="pic/product10-var1.png" alt="" />
+          </div>
+          <div class="product-info-container">
+            <p class="product-name">Men's Slim-Fit Summer Shorts
+            </p>    
+          </div>
+          <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
+            <label class="product-rating-count">120</label>
+          </div>
+          <div class="product-price-container">$<span class="product-price">15.60</span> </div>
+          <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <p class="product-variationA-title">Color</p>
+          <div class="product-variationA-container">
+            <button class="product-variationA-button">Gray</button>
+            <button class="product-variationA-button">Black</button>
+            <button class="product-variationA-button">Beige</button>
+          </div> 
+
+          <p class="product-variationB-title">Size</p>
+          <div class="product-variationB-container">
+            <button class="product-variationB-button">30</button>
+            <button class="product-variationB-button">31</button>
+            <button class="product-variationB-button">32</button>
+
           </div> 
           <div class="spacer"></div>
 

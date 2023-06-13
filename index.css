@@ -5,9 +5,11 @@
   /* height: 100%; */
   border: none;
   font-family: roboto, Arial;
-  font-family: "Sen", sans-serif;
-  font-family: "Signika", sans-serif;
-  font-weight: 300;
+  font-family: "Merriweather", serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
+
+  font-weight: 500;
 }
 
 html {

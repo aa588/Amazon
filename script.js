@@ -417,6 +417,13 @@ const product = {
 selectVariation();
 function selectVariation() {
   let array = [];
+
+  product.container.forEach((item, index) => {
+    const itemSelector = item.querySelector(".product-picture");
+    const itemSelectorPicture = itemSelector.setAttribute("data-id", index + 1);
+    console.log(itemSelector);
+  });
+
   product.variationFirst.forEach((variation, index) => {
     const buttons = product.variationFirst[index].querySelectorAll("button");
     array.push(buttons);
@@ -431,9 +438,19 @@ function selectVariation() {
           array[i][k].classList.remove("product-variation-selected");
         }
         array[i][j].classList.add("product-variation-selected");
-        product.picture[i].setAttribute("data-id", array[i][j].textContent);
-        let pictureSRC = `pic/product${i + 1}-var${j + 1}.jpg`;
-        product.picture[i].src = pictureSRC;
+
+        const relatedPicture =
+          array[i][j].parentElement.parentElement.querySelector(
+            ".product-picture"
+          );
+
+        // product.picture[i].setAttribute("data-id", array[i][j].textContent);
+        let relatedPictureId = relatedPicture.getAttribute("data-id");
+
+        let pictureSRC = `pic/product${relatedPictureId}-var${j + 1}.png`;
+        relatedPicture.src = pictureSRC;
+
+        // product.picture[i].src = pictureSRC;
       }
     }
   }
@@ -609,8 +626,19 @@ function filterProducts() {
   }
 }
 
-window.addEventListener("resize", function () {
-  window.innerWidth <= 400
-    ? (document.querySelector("#logo").src = "pic/amazon-mobile-logo-white.png")
-    : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("resize", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo").src =
+          "pic/amazon-mobile-logo-white.png")
+      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+  });
+
+  // Run the code on page refresh
+  window.addEventListener("load", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo").src =
+          "pic/amazon-mobile-logo-white.png")
+      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+  });
 });
