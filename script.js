@@ -75,7 +75,11 @@ window.onload = function () {
   for (let i = 0; i < boughtItems.length; i++) {
     //setting default shipping level
 
-    if (savedCurrentShippingLevel == null) {
+    if (
+      currentShippingLevel[i] !== shippingLevel1 &&
+      currentShippingLevel[i] !== shippingLevel2 &&
+      currentShippingLevel[i] !== shippingLevel3
+    ) {
       currentShippingLevel[i] = shippingLevel3;
     }
 
@@ -96,7 +100,7 @@ window.onload = function () {
 
       <div id="cart-product-details-first-section${i}" class="cart-product-details-first-section">  
           <div class = "proName">${boughtItems[i].name}</div>
-         <div class="price">Price: ${boughtItems[i].price}</div>
+         <div class="price">Price: $${boughtItems[i].price}</div>
       </div>
 
         <div id="cart-product-quantity-container">
@@ -609,7 +613,6 @@ product.addToCart.forEach((button) => {
       });
     }
 
-    console.log(boughtItems);
     sessionStorage.setItem("productsStorage", JSON.stringify(boughtItems));
   });
 });
