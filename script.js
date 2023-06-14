@@ -95,21 +95,19 @@ window.onload = function () {
 
       <div id="cart-product-details-first-section${i}" class="cart-product-details-first-section">  
           <div class = "proName">${boughtItems[i].name}</div>
-         <div class="price">${boughtItems[i].price}</div>
+         <div class="price">Price: ${boughtItems[i].price}</div>
       </div>
-    
-
-
 
         <div id="cart-product-quantity-container">
           <div id="cart-product-quantity">Quantity:      <input type="number" class="cart-product-quantity-input-hide cart-product-quantity-input" value="${boughtItems[i].quantity}">  <span class = "cart-product-product-quantity-number">${boughtItems[i].quantity}</span> </div>
-     
+  
           <button id="${i}" class="cart-update-quantity">Update</button>
           <button id="delete${i}" class="cart-delete-quantity" >Delete</button>
         </div>
       </div>
     </div>
     <div class="cart-page-content-review-delivery">
+    <div class="cart-delivery-container">  
       <div class="delivery-header">Choose a delivery option:</div>
       <div class="delivery-option-container">
         <input
@@ -145,6 +143,7 @@ window.onload = function () {
           <div id="cart-product-shipping-date">$9.99 - Shipping</div>
         </div>
       </div>
+   </div>
     </div>
   </div>`;
     temp.appendChild(newItem);
@@ -190,6 +189,13 @@ window.onload = function () {
 
       inputUpdaters[j].onclick = function () {
         this.textContent = this.textContent === "Update" ? "Save" : "Update";
+        this.textContent === "Save"
+          ? inputNumbers[j].classList.add(
+              "cart-product-product-quantity-number-hide"
+            )
+          : inputNumbers[j].classList.remove(
+              "cart-product-product-quantity-number-hide"
+            );
         inputChangers[j].classList.toggle(
           "cart-product-quantity-input-hide",
           inputChangers[j].classList.contains(
@@ -212,6 +218,10 @@ window.onload = function () {
           boughtItems[j].quantity = Number(inputNumbers[j].textContent);
           orderSummary();
           updateCheckout();
+          sessionStorage.setItem(
+            "productsStorage",
+            JSON.stringify(boughtItems)
+          );
         }
       };
     }
@@ -394,6 +404,16 @@ window.onload = function () {
       total.textContent = `$0.00`;
     }
   }
+  window.addEventListener("resize", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo2").src =
+          "pic/amazon-mobile-logo-black.png")
+      : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
+  });
+  window.innerWidth <= 400
+    ? (document.querySelector("#logo2").src =
+        "pic/amazon-mobile-logo-black.png")
+    : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
 };
 
 let currentShippingLevel = [];

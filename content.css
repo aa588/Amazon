@@ -51,15 +51,11 @@
   padding-bottom: 25px;
   padding-left: 25px;
   padding-right: 25px;
-  /* display: grid;
-  grid-template-rows: 30% 10% repeat(3, 10%); set the height of the rows in the grid */
 }
 
 .product-picture-container {
-  width: 180px;
   height: 180px;
   margin-bottom: 10px;
-  /* background-color: rgb(15, 40, 61); */
 }
 
 .product-picture {
@@ -189,14 +185,17 @@
 }
 
 .addToCartButton {
-  border-radius: 12px;
-  padding: 8px 55px;
+  border-radius: 15px;
+  padding: 8px 65px;
   background-color: rgb(255, 216, 20);
   cursor: pointer;
   box-shadow: 2px 2px 4px rgba(68, 66, 66, 0.3);
   display: block;
   margin: 0 auto;
   transition: all 0.1s ease-in-out; /* add transition for smooth effect */
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .addToCartButton:hover {
