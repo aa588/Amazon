@@ -350,7 +350,7 @@ body {
   }
 
   #cart-page-content > div {
-    width: 450px;
+    width: 320px;
   }
 
   #cart-page-content-products {
@@ -552,11 +552,5 @@ body {
   .delivery-header {
     /* margin-top: 5px; */
     font-weight: 600;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  #cart-page-content > div {
-    width: 320px;
   }
 }
