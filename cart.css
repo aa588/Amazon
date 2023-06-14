@@ -554,3 +554,9 @@ body {
     font-weight: 600;
   }
 }
+
+@media screen and (max-width: 400px) {
+  #cart-page-content > div {
+    width: 320px;
+  }
+}
