@@ -74,7 +74,8 @@ window.onload = function () {
 
   for (let i = 0; i < boughtItems.length; i++) {
     //setting default shipping level
-    if (currentShippingLevel[i] == null) {
+
+    if (savedCurrentShippingLevel == null) {
       currentShippingLevel[i] = shippingLevel3;
     }
 
@@ -312,6 +313,7 @@ window.onload = function () {
         const productDeliverySelectorButton = productDeliverySelector[
           j
         ].querySelector(".cart-delivery-selector");
+
         productDeliverySelector[j].addEventListener("click", changeShipping);
 
         function changeShipping() {
