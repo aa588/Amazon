@@ -1,4 +1,22 @@
 // sessionStorage.clear();
+
+document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("resize", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo").src =
+          "pic/amazon-mobile-logo-white.png")
+      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+  });
+
+  // Run the code on page refresh
+  window.addEventListener("load", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo").src =
+          "pic/amazon-mobile-logo-white.png")
+      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+  });
+});
+
 const items = document.querySelector("#items");
 const shipping = document.querySelector("#shipping");
 const totalBeforeTax = document.querySelector("#totalBeforeTax");
@@ -649,20 +667,3 @@ function filterProducts() {
     });
   }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  window.addEventListener("resize", function () {
-    window.innerWidth <= 400
-      ? (document.querySelector("#logo").src =
-          "pic/amazon-mobile-logo-white.png")
-      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
-  });
-
-  // Run the code on page refresh
-  window.addEventListener("load", function () {
-    window.innerWidth <= 400
-      ? (document.querySelector("#logo").src =
-          "pic/amazon-mobile-logo-white.png")
-      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
-  });
-});
