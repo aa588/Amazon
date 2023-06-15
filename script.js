@@ -473,7 +473,7 @@ function selectVariation() {
         // product.picture[i].setAttribute("data-id", array[i][j].textContent);
         let relatedPictureId = relatedPicture.getAttribute("data-id");
 
-        let pictureSRC = `pic/product${relatedPictureId}-var${j + 1}.png`;
+        let pictureSRC = `pic/product${relatedPictureId}-var${j + 1}.jpg`;
         relatedPicture.src = pictureSRC;
 
         // product.picture[i].src = pictureSRC;

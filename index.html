@@ -1,524 +1,1054 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="header.css" />
-    <link rel="stylesheet" type="text/css" href="content.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="cart.css" /> -->
-    <link rel="stylesheet" type="text/css" href="mobile.css" />
-    <title>amazon</title>
-  </head>
-  <body>
-    <div id="main">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="index.css" />
+      <link rel="stylesheet" type="text/css" href="header.css" />
+      <link rel="stylesheet" type="text/css" href="content.css" />
+      <!-- <link rel="stylesheet" type="text/css" href="cart.css" /> -->
+      <link rel="stylesheet" type="text/css" href="mobile.css" />
+      <title>amazon</title>
+   </head>
+   <body>
+      <div id="main">
       <div id="header">
-        <div id="left-section">
-          <a href="index.html"><img id="logo" class="website-logo" src="pic/amazon-logo.png" /></a>
-        </div>
-        <div id="middle-section">
-          <input id="search-input" placeholder="Search" />
-          <button id="search-button">
+         <div id="left-section">
+            <a href="index.html"><img id="logo" class="website-logo" src="pic/amazon-logo.png" /></a>
+         </div>
+         <div id="middle-section">
+            <input id="search-input" placeholder="Search" />
+            <button id="search-button">
             <img id="search-icon" src="pic/search-icon.png" />
-          </button>
-        </div>
-
-        <div id="right-section">
-          <a href="cart.html">
-            <div id="cart-container">
-              <button id="cart-button">
-                <img id="cart-icon" src="pic/cart-icon.png" />
-                <label id="cart-items-count">0</label>
-              </button>
-              <p id="cart-text">Cart</p>
-            </div>
-          </a>
-        </div>
+            </button>
+         </div>
+         <div id="right-section">
+            <a href="cart.html">
+               <div id="cart-container">
+                  <button id="cart-button">
+                  <img id="cart-icon" src="pic/cart-icon.png" />
+                  <label id="cart-items-count">0</label>
+                  </button>
+                  <p id="cart-text">Cart</p>
+               </div>
+            </a>
+         </div>
       </div>
       <div id="content">
-        
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product1-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
-            <p class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs
-            </p>    
-          </div>
-          <div class="product-rating-container">
-            <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
-            <label class="product-rating-count">87</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">10.90</span> </div>
-          <div class="product-quantity-container">
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product1-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">Men's Navigator Sunglasses Pilot
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-35.png" alt="" />
+            <label class="product-rating-count">22</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">16.90</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-        
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
+            <button class="product-variationA-button">Brown</button>
+            <button class="product-variationA-button">Silver</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-       
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product2-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product2-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Intermediate Size Basketball
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
             <label class="product-rating-count">127</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">20.95</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">20.95</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-       
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product3-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product3-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Adults Plain Cotton T-Shirt - 2 Pack
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
             <label class="product-rating-count">56</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">7.99</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">7.99</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-         
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product4-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
-            <p class="product-name">2 Slot Toaster - Black
-            </p>    
-          </div>
-          <div class="product-rating-container">
-            <img class="product-rating-stars" src="pic/rating-5.png" alt="" />
-            <label class="product-rating-count">2152</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">18.99</span> </div>
-          <div class="product-quantity-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product4-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">Men's Athletic Sneaker
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
+            <label class="product-rating-count">224</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">38.90</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-        
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
+            <button class="product-variationA-button">Green</button>
+            <button class="product-variationA-button">Black</button>
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
+            <button class="product-variationB-button">9</button>
+            <button class="product-variationB-button">10</button>
+            <button class="product-variationB-button">11</button>
+            <button class="product-variationB-button">12</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product5-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product5-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">6 Piece White Dinner Plate Set
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
             <label class="product-rating-count">22</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">20.67</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">20.67</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-        
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-        
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product6-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product6-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Carbon Steel Oven Bakeware Baking
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
             <label class="product-rating-count">255</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">34.99</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">34.99</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-        
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-
-
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product7-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product7-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Plain Hooded Fleece Sweatshirt
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
             <label class="product-rating-count">352</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">24.00</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">24.00</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-          <p class="product-variationA-title">Color</p>
-          <div class="product-variationA-container">
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
             <button class="product-variationA-button">Yellow</button>
             <button class="product-variationA-button">Teal</button>
-          </div> 
-          <p class="product-variationB-title">Size</p>
-          <div class="product-variationB-container">
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
             <button class="product-variationB-button">S</button>
             <button class="product-variationB-button">M</button>
             <button class="product-variationB-button">L</button>
-          </div> 
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-
-
-        
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product8-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product8-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Waterproof Knit Athletic Sneakers - Gray
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
             <label class="product-rating-count">83</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">33.90</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">33.90</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-        
-          <p class="product-variationB-title">Size</p>
-          <div class="product-variationB-container">
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
             <button class="product-variationB-button">5</button>
             <button class="product-variationB-button">6</button>
             <button class="product-variationB-button">7</button>
             <button class="product-variationB-button">8</button>
             <button class="product-variationB-button">9</button>
-          </div> 
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-        
-
-        
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product9-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product9-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Round Sunglasses
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
             <label class="product-rating-count">20</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">15.60</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">15.60</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-          <p class="product-variationA-title">Color</p>
-          <div class="product-variationA-container">
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
             <button class="product-variationA-button">Black</button>
             <button class="product-variationA-button">Gold</button>
-          </div> 
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-
-
-         
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product10-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product10-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Men's Slim-Fit Summer Shorts
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
             <label class="product-rating-count">203</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">16.99</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">16.99</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
             </select>
-          </div>
-          <p class="product-variationA-title">Color</p>
-          <div class="product-variationA-container">
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
             <button class="product-variationA-button">Gray</button>
             <button class="product-variationA-button">Black</button>
             <button class="product-variationA-button">Beige</button>
-          </div> 
-
-          <p class="product-variationB-title">Size</p>
-          <div class="product-variationB-container">
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
             <button class="product-variationB-button">30</button>
             <button class="product-variationB-button">31</button>
             <button class="product-variationB-button">32</button>
-
-          </div> 
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
             <div class="product-added-container">
-              <img class="product-added-icon" src="pic/tick.png" />
-              <p class="product-added-text">Added</p>
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
             </div>
             <button class="addToCartButton">Add to Cart</button>
-          </div>
-        </div>
-
-
-
-
-
-         
-
-        <div class="product-container">
-          <div class="product-picture-container">
-            <img class="product-picture" src="pic/product12-var1.png" alt="" />
-          </div>
-          <div class="product-info-container">
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product11-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
             <p class="product-name">Ultra Soft Tissue 2-Ply - 18 Box
-            </p>    
-          </div>
-          <div class="product-rating-container">
+            </p>
+         </div>
+         <div class="product-rating-container">
             <img class="product-rating-stars" src="pic/rating-5.png" alt="" />
             <label class="product-rating-count">22</label>
-          </div>
-          <div class="product-price-container">$<span class="product-price">23.44</span> </div>
-          <div class="product-quantity-container">
+         </div>
+         <div class="product-price-container">$<span class="product-price">23.44</span> </div>
+         <div class="product-quantity-container">
             <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product12-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">Men's Regular-Fit Quick-Dry Golf Polo Shirt
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+            <label class="product-rating-count">656</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">15.99</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
+            <button class="product-variationA-button">Blue</button>
+            <button class="product-variationA-button">Black</button>
+            <button class="product-variationA-button">Red</button>
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
+            <button class="product-variationB-button">S</button>
+            <button class="product-variationB-button">M</button>
+            <button class="product-variationB-button">L</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product13-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+            <label class="product-rating-count">853</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">30.65</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product14-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
+            <label class="product-rating-count">332</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">20.30</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
+            <button class="product-variationA-button">Plain</button>
+            <button class="product-variationA-button">Lavender</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product15-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Trash Can with Foot Pedal - Brushed Stainless Steel  
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
+            <label class="product-rating-count">2235</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">83.00</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
+            <button class="product-variationB-button">50L</button>
+            <button class="product-variationB-button">30L Tall</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product16-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Bathroom Bath Rug Mat 20 x 31 Inch - Grey
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
+            <label class="product-rating-count">220</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">12.50</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product17-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Men's Classic-fit Pleated Chino Pants
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-4.png" alt="" />
+            <label class="product-rating-count">4021</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">22.90</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
+            <button class="product-variationA-button">Beige</button>
+            <button class="product-variationA-button">Green</button>
+            <button class="product-variationA-button">Black</button>
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
+            <button class="product-variationB-button">30</button>
+            <button class="product-variationB-button">31</button>
+            <button class="product-variationB-button">32</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product18-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               2 Slot Toaster - Black
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-5.png" alt="" />
+            <label class="product-rating-count">2241</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">18.99</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product19-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Vanity Mirror with Heavy Base - Chrome
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-5.png" alt="" />
+            <label class="product-rating-count">130</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">16.49</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product20-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Coffeemaker with Glass Carafe and Reusable Filter
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-5.png" alt="" />
+            <label class="product-rating-count">1244</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">22.50</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product21-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Blackout Curtains Set 42 x 84-Inch - Black, 2 Panels
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+            <label class="product-rating-count">352</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">30.99</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product22-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Countertop Blender - 64oz, 1400 Watts
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-35.png" alt="" />
+            <label class="product-rating-count">3</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">30.99</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product23-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">
+               Waterproof Knit Athletic Sneakers - Pink
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+            <label class="product-rating-count">49</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">33.90</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
+            <button class="product-variationB-button">6</button>
+            <button class="product-variationB-button">7</button>
+            <button class="product-variationB-button">8</button>
+            <button class="product-variationB-button">9</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+         <div class="product-picture-container">
+            <img class="product-picture" src="pic/product24-var1.jpg" alt="" />
+         </div>
+         <div class="product-info-container">
+            <p class="product-name">Men's Full-Zip Hooded Fleece Sweatshirt
+            </p>
+         </div>
+         <div class="product-rating-container">
+            <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+            <label class="product-rating-count">3251</label>
+         </div>
+         <div class="product-price-container">$<span class="product-price">24.00</span> </div>
+         <div class="product-quantity-container">
+            <select name="product-quantity" id="product-quantity-choices">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+         </div>
+         <p class="product-variationA-title">Color</p>
+         <div class="product-variationA-container">
+            <button class="product-variationA-button">Red</button>
+            <button class="product-variationA-button">Black</button>
+         </div>
+         <p class="product-variationB-title">Size</p>
+         <div class="product-variationB-container">
+            <button class="product-variationB-button">M</button>
+            <button class="product-variationB-button">L</button>
+            <button class="product-variationB-button">XL</button>
+         </div>
+         <div class="spacer"></div>
+         <div class="product-addToCart-container">
+            <div class="product-added-container">
+               <img class="product-added-icon" src="pic/tick.png" />
+               <p class="product-added-text">Added</p>
+            </div>
+            <button class="addToCartButton">Add to Cart</button>
+         </div>
+      </div>
+      <div class="product-container">
+        <div class="product-picture-container">
+           <img class="product-picture" src="pic/product25-var1.jpg" alt="" />
+        </div>
+        <div class="product-info-container">
+           <p class="product-name">Non-Stick Cookware Set
+           </p>
+        </div>
+        <div class="product-rating-container">
+           <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+           <label class="product-rating-count">422</label>
+        </div>
+        <div class="product-price-container">$<span class="product-price">67.99</span> </div>
+        <div class="product-quantity-container">
+           <select name="product-quantity" id="product-quantity-choices">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -529,25 +1059,127 @@
               <option value="8">8</option>
               <option value="9">9</option>
               <option value="10">10</option>
-            </select>
-          </div>
-
-          <div class="spacer"></div>
-
-          <div class="product-addToCart-container">
-            <div class="product-added-container">
+           </select>
+        </div>
+        <div class="spacer"></div>
+        <div class="product-addToCart-container">
+           <div class="product-added-container">
               <img class="product-added-icon" src="pic/tick.png" />
               <p class="product-added-text">Added</p>
-            </div>
-            <button class="addToCartButton">Add to Cart</button>
-          </div>
+           </div>
+           <button class="addToCartButton">Add to Cart</button>
         </div>
-
-
-
-    <!-- script starts here -->
-
-    <script type="module" src="script.js"></script>
-    <script type="module" src="cart.js"></script>
-  </body>
+     </div>
+     <div class="product-container">
+      <div class="product-picture-container">
+         <img class="product-picture" src="pic/product26-var1.jpg" alt="" />
+      </div>
+      <div class="product-info-container">
+         <p class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs
+         </p>
+      </div>
+      <div class="product-rating-container">
+         <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+         <label class="product-rating-count">22</label>
+      </div>
+      <div class="product-price-container">$<span class="product-price">10.90</span> </div>
+      <div class="product-quantity-container">
+         <select name="product-quantity" id="product-quantity-choices">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+         </select>
+      </div>
+      <div class="spacer"></div>
+      <div class="product-addToCart-container">
+         <div class="product-added-container">
+            <img class="product-added-icon" src="pic/tick.png" />
+            <p class="product-added-text">Added</p>
+         </div>
+         <button class="addToCartButton">Add to Cart</button>
+      </div>
+   </div>
+   <div class="product-container">
+    <div class="product-picture-container">
+       <img class="product-picture" src="pic/product27-var1.jpg" alt="" />
+    </div>
+    <div class="product-info-container">
+       <p class="product-name">Straw Lifeguard Sun Hat
+       </p>
+    </div>
+    <div class="product-rating-container">
+       <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+       <label class="product-rating-count">252</label>
+    </div>
+    <div class="product-price-container">$<span class="product-price">22.00</span> </div>
+    <div class="product-quantity-container">
+       <select name="product-quantity" id="product-quantity-choices">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+       </select>
+    </div>
+    <div class="spacer"></div>
+    <div class="product-addToCart-container">
+       <div class="product-added-container">
+          <img class="product-added-icon" src="pic/tick.png" />
+          <p class="product-added-text">Added</p>
+       </div>
+       <button class="addToCartButton">Add to Cart</button>
+    </div>
+ </div>
+ <div class="product-container">
+  <div class="product-picture-container">
+     <img class="product-picture" src="pic/product27-var1.jpg" alt="" />
+  </div>
+  <div class="product-info-container">
+     <p class="product-name">Round Airtight Food Storage Containers 
+     </p>
+  </div>
+  <div class="product-rating-container">
+     <img class="product-rating-stars" src="pic/rating-45.png" alt="" />
+     <label class="product-rating-count">152</label>
+  </div>
+  <div class="product-price-container">$<span class="product-price">28.99</span> </div>
+  <div class="product-quantity-container">
+     <select name="product-quantity" id="product-quantity-choices">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+     </select>
+  </div>
+  <div class="spacer"></div>
+  <div class="product-addToCart-container">
+     <div class="product-added-container">
+        <img class="product-added-icon" src="pic/tick.png" />
+        <p class="product-added-text">Added</p>
+     </div>
+     <button class="addToCartButton">Add to Cart</button>
+  </div>
+</div>
+      <!-- script starts here -->
+      <script type="module" src="script.js"></script>
+      <script type="module" src="cart.js"></script>
+   </body>
 </html>

@@ -388,7 +388,9 @@ body {
   }
 
   #cart-page-content > div {
-    width: 320px;
+    width: 90%;
+    min-width: 320px;
+    max-width: 500px;
   }
 
   #cart-page-content-products {
@@ -540,6 +542,8 @@ body {
   }
   .proName {
     width: 100%;
+
+    max-width: none;
   }
 
   .delivery-header {
