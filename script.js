@@ -8,12 +8,21 @@ document.addEventListener("DOMContentLoaded", function () {
       : (document.querySelector("#logo").src = "pic/amazon-logo.png");
   });
 
-  // Run the code on page refresh
   window.addEventListener("load", function () {
     window.innerWidth <= 400
       ? (document.querySelector("#logo").src =
           "pic/amazon-mobile-logo-white.png")
       : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+  });
+  window.innerWidth <= 400
+    ? (document.querySelector("#logo2").src =
+        "pic/amazon-mobile-logo-black.png")
+    : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
+  window.addEventListener("resize", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo2").src =
+          "pic/amazon-mobile-logo-black.png")
+      : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
   });
 });
 
@@ -77,11 +86,6 @@ const savedCurrentShippingLevelSelector =
   JSON.parse(sessionStorage.getItem("currentShippingSelector")) || [];
 
 window.onload = function () {
-  window.innerWidth <= 400
-    ? (document.querySelector("#logo2").src =
-        "pic/amazon-mobile-logo-black.png")
-    : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
-
   // cartCountDisplay;
   hideEmptycartDiv();
   function hideEmptycartDiv() {
@@ -431,12 +435,6 @@ window.onload = function () {
       total.textContent = `$0.00`;
     }
   }
-  window.addEventListener("resize", function () {
-    window.innerWidth <= 400
-      ? (document.querySelector("#logo2").src =
-          "pic/amazon-mobile-logo-black.png")
-      : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
-  });
 };
 
 let currentShippingLevel = [];
