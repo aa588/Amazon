@@ -59,6 +59,11 @@ const savedCurrentShippingLevelSelector =
   JSON.parse(sessionStorage.getItem("currentShippingSelector")) || [];
 
 window.onload = function () {
+  window.innerWidth <= 400
+    ? (document.querySelector("#logo2").src =
+        "pic/amazon-mobile-logo-black.png")
+    : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
+
   // cartCountDisplay;
   hideEmptycartDiv();
   function hideEmptycartDiv() {
@@ -414,10 +419,6 @@ window.onload = function () {
           "pic/amazon-mobile-logo-black.png")
       : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
   });
-  window.innerWidth <= 400
-    ? (document.querySelector("#logo2").src =
-        "pic/amazon-mobile-logo-black.png")
-    : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
 };
 
 let currentShippingLevel = [];
