@@ -1,6 +1,4 @@
 // sessionStorage.clear();
-// sessionStorage.clear();
-
 const items = document.querySelector("#items");
 const shipping = document.querySelector("#shipping");
 const totalBeforeTax = document.querySelector("#totalBeforeTax");
