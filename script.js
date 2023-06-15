@@ -7,11 +7,15 @@ window.addEventListener("resize", function () {
 });
 
 // Run the code on page refresh
-window.addEventListener("load", function () {
-  window.innerWidth <= 400
-    ? (document.querySelector("#logo").src = "pic/amazon-mobile-logo-white.png")
-    : (document.querySelector("#logo").src = "pic/amazon-logo.png");
-});
+setTimeout(function () {
+  window.addEventListener("load", function () {
+    window.innerWidth <= 400
+      ? (document.querySelector("#logo").src =
+          "pic/amazon-mobile-logo-white.png")
+      : (document.querySelector("#logo").src = "pic/amazon-logo.png");
+  });
+}, 0);
+
 window.innerWidth <= 400
   ? (document.querySelector("#logo2").src = "pic/amazon-mobile-logo-black.png")
   : (document.querySelector("#logo2").src = "pic/amazon-logo2.png");
