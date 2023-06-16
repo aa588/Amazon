@@ -624,7 +624,7 @@ function filterProducts() {
 
   if (searchQuery === "") {
     products.forEach((product) => {
-      product.style.display = "block";
+      product.style.display = "flex";
     });
   } else {
     products.forEach((product) => {
@@ -632,7 +632,7 @@ function filterProducts() {
         .querySelector(".product-name")
         .textContent.toLowerCase();
       if (productName.includes(searchQuery)) {
-        product.style.display = "block";
+        product.style.display = "flex";
       } else {
         product.style.display = "none";
       }
