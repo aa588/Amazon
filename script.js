@@ -1,4 +1,7 @@
 // // sessionStorage.clear();
+window.addEventListener("popstate", () => {
+  location.reload();
+});
 
 const items = document.querySelector("#items");
 const shipping = document.querySelector("#shipping");
