@@ -29,7 +29,11 @@
   justify-content: center;
 }
 
+#right-section {
+}
+
 #left-section {
+  flex: 1;
 }
 
 #logo {
