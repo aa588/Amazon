@@ -1,7 +1,4 @@
 // // sessionStorage.clear();
-window.addEventListener("popstate", () => {
-  location.reload();
-});
 
 const items = document.querySelector("#items");
 const shipping = document.querySelector("#shipping");
@@ -63,6 +60,9 @@ const savedCurrentShippingLevelSelector =
   JSON.parse(sessionStorage.getItem("currentShippingSelector")) || [];
 
 window.onload = function () {
+  window.addEventListener("popstate", () => {
+    location.reload();
+  });
   // cartCountDisplay;
   hideEmptycartDiv();
   function hideEmptycartDiv() {
