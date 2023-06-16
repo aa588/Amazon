@@ -60,9 +60,6 @@ const savedCurrentShippingLevelSelector =
   JSON.parse(sessionStorage.getItem("currentShippingSelector")) || [];
 
 window.onload = function () {
-  window.addEventListener("popstate", () => {
-    location.reload();
-  });
   // cartCountDisplay;
   hideEmptycartDiv();
   function hideEmptycartDiv() {
